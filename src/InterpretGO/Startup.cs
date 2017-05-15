@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using InterpretGO.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace MrFixIt
+namespace InterpretGO
 {
     public class Startup
     {
@@ -35,7 +35,7 @@ namespace MrFixIt
                 .AddDbContext<InterpretGODbContext>(options =>
                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<MrFixItContext>()
+                .AddEntityFrameworkStores<InterpretGODbContext>()
                 .AddDefaultTokenProviders();
         }
 
