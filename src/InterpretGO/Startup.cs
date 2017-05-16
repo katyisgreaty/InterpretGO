@@ -25,12 +25,9 @@ namespace InterpretGO
                 .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
         }
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
             services.AddEntityFramework()
                 .AddDbContext<InterpretGODbContext>(options =>
                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
@@ -39,26 +36,18 @@ namespace InterpretGO
                 .AddDefaultTokenProviders();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseStaticFiles();
-            loggerFactory.AddConsole();
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
             app.UseIdentity();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
-                //Site opens on Index page of Account controller
             });
-            app.Run(async (error) =>
+            app.Run(async (context) =>
             {
-                await error.Response.WriteAsync("You should not see this message. An error has occured.");
+                await context.Response.WriteAsync("Hello World!");
             });
         }
     }

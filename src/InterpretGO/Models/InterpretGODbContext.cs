@@ -22,7 +22,7 @@ namespace InterpretGO.Models
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             //Database is called MrFixIt
-            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MrFixIt;integrated security=True");
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=InterpretGO;integrated security=True");
         }
 
         public InterpretGODbContext(DbContextOptions<InterpretGODbContext> options)
