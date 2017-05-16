@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using InterpretGO.Models;
 using System.Threading.Tasks;
-using BasicAuthentication.ViewModels;
+using InterpretGO.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
