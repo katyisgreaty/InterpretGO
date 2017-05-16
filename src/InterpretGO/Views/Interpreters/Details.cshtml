@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model InterpretGO.Models.Interpreter
+
+
+<body>
+    <h2>Interpreter Details</h2>
+    <hr />
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    @Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(model => model.Phone)
+    @Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)
+    @Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)
+    @Html.DisplayNameFor(model => model.Rate): @Html.DisplayFor(model => model.Rate)
+
+
+    <p>@Html.ActionLink("Back to list of interpreters", "Index")</p>
+</body>
+</html>
