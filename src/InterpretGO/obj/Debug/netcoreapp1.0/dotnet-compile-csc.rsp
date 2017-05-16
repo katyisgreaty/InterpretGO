@@ -207,6 +207,7 @@
 -resource:"C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\obj\Debug\netcoreapp1.0\InterpretGOdotnet-compile.deps.json",InterpretGO.deps.json
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Program.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Startup.cs"
+"C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Controllers\AccountController.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Controllers\HomeController.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Migrations\20170516153340_Initial.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Migrations\20170516153340_Initial.Designer.cs"
@@ -216,3 +217,5 @@
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Models\Client.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Models\Interpreter.cs"
 "C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\Models\InterpretGODbContext.cs"
+"C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\ViewModels\LoginViewModel.cs"
+"C:\Users\epicodus\Desktop\InterpretGO\src\InterpretGO\ViewModels\RegisterViewModel.cs"
