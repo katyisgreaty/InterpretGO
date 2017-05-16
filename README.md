@@ -6,7 +6,7 @@
 
 ## Description
 
-_This web app allows both interpreters and Deaf clients to connect, find, and work together for events requiring interpreting. Deaf consumers will be able to make a request for an interpreter for a specific appointment, meeting, or event, and interpreters will be able to log in and accept or claim jobs._
+_This web app allows both American Sign Language interpreters and Deaf clients to connect, find, and work together for events requiring interpreting. Deaf consumers will be able to make a request for an interpreter for a specific appointment, meeting, or event, and interpreters will be able to log in and accept or claim jobs._
 
 ## Setup/Installation Requirements
 
