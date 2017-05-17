@@ -12,8 +12,9 @@
 <ul>
     @foreach (var listInterpreter in Model)
     {
-        <li>@Html.DisplayFor(modelInterpreter => listInterpreter.Name)</li>
-        @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId })
+        <li>@Html.DisplayFor(modelInterpreter => listInterpreter.Name) | @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
+        </li>
+        
     }
 </ul>
 

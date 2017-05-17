@@ -1,0 +1,33 @@
+﻿@model InterpretGO.Models.Interpreter
+
+
+
+<h2>Edit</h2>
+<hr />
+<h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.InterpreterId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Specialty)
+    @Html.EditorFor(model => model.Specialty)
+
+    @Html.LabelFor(model => model.Certification)
+    @Html.EditorFor(model => model.Certification)
+
+    @Html.LabelFor(model => model.Rate)
+    @Html.EditorFor(model => model.Rate)
+
+    @Html.LabelFor(model => model.Email)
+    @Html.EditorFor(model => model.Email)
+
+    @Html.LabelFor(model => model.Phone)
+    @Html.EditorFor(model => model.Phone)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using InterpretGO.Models;
+using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace InterpretGO.Controllers
 {
@@ -33,6 +33,35 @@ namespace InterpretGO.Controllers
         {
             interpreter.UserName = User.Identity.Name;
             db.Interpreters.Add(interpreter);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisInterpreter = db.Interpreters.FirstOrDefault(interpreters => interpreters.InterpreterId == id);
+            return View(thisInterpreter);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Interpreter interpreter)
+        {
+            db.Entry(interpreter).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisInterpreter = db.Interpreters.FirstOrDefault(interpreters => interpreters.InterpreterId == id);
+            return View(thisInterpreter);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisInterpreter = db.Interpreters.FirstOrDefault(interpreters => interpreters.InterpreterId == id);
+            db.Interpreters.Remove(thisInterpreter);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
