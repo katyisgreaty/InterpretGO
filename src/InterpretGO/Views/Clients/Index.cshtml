@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index Clients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<InterpretGO.Models.Client>
+
+
+
+<h2>Interpreters</h2>
+<h4>@Html.DisplayNameFor(model => model.Name)</h4>
+<ul>
+    @foreach (var listClient in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelClient => listClient.Name) | @Html.ActionLink("Details", "Details", new { id = listClient.ClientId }) | @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId }) | @Html.ActionLink("Delete", "Delete", new { id = listClient.ClientId })
+        </li>
+
+    }
+</ul>
+
+<p>@Html.ActionLink("Add new Client", "Create")</p>
