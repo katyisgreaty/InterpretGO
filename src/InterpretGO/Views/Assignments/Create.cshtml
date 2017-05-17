@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Create Assignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model InterpretGO.Models.Assignment
+
+<h2>Add new Assignment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title, new { @required = "true" })
+
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type, new { @required = "true" })
+
+    @Html.LabelFor(model => model.Duration)
+    @Html.TextBoxFor(model => model.Duration)
+
+    @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location)
+
+    @Html.LabelFor(model => model.Language)
+    @Html.TextBoxFor(model => model.Language)
+
+    //Edit me!!
+
+    @*@Html.LabelFor(model => model.Interpreter)
+    @Html.DropDownList(model => model.Location)
+
+    @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location)
+
+    @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location)
+
+    @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location)*@
+
+    <input type="submit" value="Add new deaf client" />
+}
+<p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
+</body>

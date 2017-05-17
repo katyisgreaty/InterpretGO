@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Assignments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<InterpretGO.Models.Assignment>
+
+
+
+<h2>Interpreters</h2>
+<h4>@Html.DisplayNameFor(model => model.Title)</h4>
+<ul>
+    @foreach (var listAssignment in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelAssignment => listAssignment.Title) | @Html.DisplayFor(modelAssignment => listAssignment.Date) | @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+        </li>
+
+    }
+</ul>
+
+<p>@Html.ActionLink("Add new Assignment", "Create")</p>

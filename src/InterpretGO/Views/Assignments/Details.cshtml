@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Assignment Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model InterpretGO.Models.Assignment
+
+
+
+<h2>Assignment Details</h2>
+<hr />
+@Html.DisplayNameFor(model => model. Title): @Html.DisplayFor(model => model.Title)
+@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)
+@Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(model => model.Date)
+@Html.DisplayNameFor(model => model.Duration): @Html.DisplayFor(model => model.Duration)
+@Html.DisplayNameFor(model => model.Language): @Html.DisplayFor(model => model.Language)
+@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)
+@Html.DisplayNameFor(model => model.Interpreter): @Html.DisplayFor(model => model.Interpreter)
+@Html.DisplayNameFor(model => model.Client): @Html.DisplayFor(model => model.Client)
+
+<p>@Html.ActionLink("Back to list of iclients", "Index")</p>

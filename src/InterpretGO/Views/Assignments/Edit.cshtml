@@ -1,0 +1,37 @@
+﻿@model InterpretGO.Models.Assignment
+
+<h2>Edit</h2>
+<hr />
+<h4>Edit this assignment: @Html.DisplayFor(model => model.Title)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AssignmentId)
+
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+
+    @Html.LabelFor(model => model.Type)
+    @Html.EditorFor(model => model.Type)
+
+    @Html.LabelFor(model => model.Date)
+    @Html.EditorFor(model => model.Date)
+
+    @Html.LabelFor(model => model.Duration)
+    @Html.EditorFor(model => model.Duration)
+
+    @Html.LabelFor(model => model.Location)
+    @Html.EditorFor(model => model.Location)
+
+    @Html.LabelFor(model => model.Language)
+    @Html.EditorFor(model => model.Language)
+
+    @Html.LabelFor(model => model.Client)
+    @Html.EditorFor(model => model.Client)
+
+    @Html.LabelFor(model => model.Interpreter)
+    @Html.EditorFor(model => model.Interpreter)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list of assignments", "Index")</p>
