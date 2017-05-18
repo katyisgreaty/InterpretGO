@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using InterpretGO.Models;
+using InterpretGO.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,6 +29,17 @@ namespace InterpretGO.Controllers
 
         public IActionResult Create()
         {
+
+            //Not yet working!
+            IEnumerable<SelectListItem> selectList =
+               from c in db.Clients
+               select new SelectListItem
+               {
+                   Text = c.Name,
+                   Value = c.Name
+               };
+            AssignmentsViewModel avm = new AssignmentsViewModel();
+            avm.Clients = selectList;
             return View();
         }
 

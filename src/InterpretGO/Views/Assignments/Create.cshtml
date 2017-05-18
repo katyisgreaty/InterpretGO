@@ -3,13 +3,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model InterpretGO.Models.Assignment
+@model InterpretGO.ViewModels.AssignmentsViewModel
 
 <h2>Add new Assignment</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Title)
+    @Html.LabelFor(model => model.Assignment.Title)
     @Html.TextBoxFor(model => model.Title, new { @required = "true" })
 
     @Html.LabelFor(model => model.Type)
