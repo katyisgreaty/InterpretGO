@@ -27,29 +27,29 @@ namespace InterpretGO.Controllers
             return View(thisAssignment);
         }
 
-        public IActionResult Create()
-        {
+        //public IActionResult Create()
+        //{
 
-            //Not yet working!
-            IEnumerable<SelectListItem> selectList =
-               from c in db.Clients
-               select new SelectListItem
-               {
-                   Text = c.Name,
-                   Value = c.Name
-               };
-            AssignmentsViewModel avm = new AssignmentsViewModel();
-            avm.Clients = selectList;
-            return View();
-        }
+        //    //Not yet working!
+        //    IEnumerable<SelectListItem> selectList =
+        //       from c in db.Clients
+        //       select new SelectListItem
+        //       {
+        //           Text = c.Name,
+        //           Value = c.Name
+        //       };
+        //    AssignmentsViewModel avm = new AssignmentsViewModel();
+        //    avm.Clients = selectList;
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult Create(Assignment assignment)
-        {
-            db.Assignments.Add(assignment);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public IActionResult Create(Assignment assignment)
+        //{
+        //    db.Assignments.Add(assignment);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         public IActionResult Edit(int id)
         {
