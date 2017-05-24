@@ -7,6 +7,7 @@ using InterpretGO.Models;
 using InterpretGO.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.DependencyInjection;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,27 +30,36 @@ namespace InterpretGO.Controllers
 
         //public IActionResult Create()
         //{
-
-        //    //Not yet working!
-        //    IEnumerable<SelectListItem> selectList =
-        //       from c in db.Clients
-        //       select new SelectListItem
-        //       {
-        //           Text = c.Name,
-        //           Value = c.Name
-        //       };
-        //    AssignmentsViewModel avm = new AssignmentsViewModel();
-        //    avm.Clients = selectList;
-        //    return View();
+        //    return View();           
         //}
 
-        //[HttpPost]
-        //public IActionResult Create(Assignment assignment)
-        //{
-        //    db.Assignments.Add(assignment);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        public IActionResult Create()
+        {
+            List<SelectListItem> TerpIdList = new List<SelectListItem>();
+            foreach(Interpreter terp in db.Interpreters)
+            {
+                TerpIdList.Add(new SelectListItem() { Text = terp.Name, Value = terp.InterpreterId.ToString() });
+            }
+            ViewBag.Terps = TerpIdList;
+
+            List<SelectListItem> ClientIdList = new List<SelectListItem>();
+            foreach (Client client in db.Clients)
+            {
+                ClientIdList.Add(new SelectListItem() { Text = client.Name, Value = client.ClientId.ToString() });
+            }
+            ViewBag.Clients = ClientIdList;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Assignment assignment)
+        {
+            Console.WriteLine(assignment);
+            db.Assignments.Add(assignment);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult Edit(int id)
         {

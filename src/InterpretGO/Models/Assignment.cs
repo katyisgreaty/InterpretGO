@@ -18,9 +18,9 @@ namespace InterpretGO.Models
         public string Language { get; set; }
         public string Location { get; set; }
         public int InterpreterId { get; set; }
-        public Interpreter Interpreter { get; set; }
+        public virtual Interpreter Interpreter { get; set; }
         public int ClientId { get; set; }
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
 
         public Client FindClient(string ClientUserName)
         {

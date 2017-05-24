@@ -3,13 +3,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model InterpretGO.ViewModels.AssignmentsViewModel
+@model InterpretGO.Models.Assignment
 
 <h2>Add new Assignment</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Assignment.Title)
+    @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(model => model.Title, new { @required = "true" })
 
     @Html.LabelFor(model => model.Type)
@@ -24,21 +24,19 @@
     @Html.LabelFor(model => model.Language)
     @Html.TextBoxFor(model => model.Language)
 
-    //Edit me!!
+    @Html.LabelFor(model => model.InterpreterId)
+   
+    <div class="form-group">
+        @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+    </div>
 
-    @*@Html.LabelFor(model => model.Interpreter)
-    @Html.DropDownList(model => model.Location)
+    @Html.LabelFor(model => model.ClientId)
 
-    @Html.LabelFor(model => model.Location)
-    @Html.TextBoxFor(model => model.Location)
+    <div class="form-group">
+        @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
+    </div>
 
-    @Html.LabelFor(model => model.Location)
-    @Html.TextBoxFor(model => model.Location)
-
-    @Html.LabelFor(model => model.Location)
-    @Html.TextBoxFor(model => model.Location)*@
-
-    <input type="submit" value="Add new deaf client" />
+    <input type="submit" value="Add new assignment" />
 }
-<p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
+<p>@Html.ActionLink("Back to list of Assignments", "Index")</p>
 </body>
