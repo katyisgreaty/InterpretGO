@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InterpretGO.Models
 {
+    [Table("Clients")]
     public class Client
     {
+        public Client()
+        {
+            this.Assignments = new HashSet<Assignment>();
+        }
+
         [Key]
         public int ClientId { get; set; }
         public string Name { get; set; }
@@ -19,10 +26,5 @@ namespace InterpretGO.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public virtual ICollection<Assignment> Assignments { get; set; }
-
-        public Client()
-        {
-
-        }
     }
 }

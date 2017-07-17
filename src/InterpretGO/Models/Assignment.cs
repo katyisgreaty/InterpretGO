@@ -8,6 +8,7 @@ namespace InterpretGO.Models
 {
     public class Assignment
     {
+        //How to assign client and interpreter to this assignment from id?
         [Key]
         public int AssignmentId { get; set; }
         public string Title { get; set; }
@@ -22,9 +23,9 @@ namespace InterpretGO.Models
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
 
-        public Client FindClient(string ClientUserName)
+        public Client FindClient(int ClientId)
         {
-            Client thisClient = new InterpretGODbContext().Clients.FirstOrDefault(i => i.UserName == ClientUserName);
+            Client thisClient = new InterpretGODbContext().Clients.FirstOrDefault(i => i.ClientId == ClientId);
             return thisClient;
         }
     }

@@ -19,7 +19,7 @@ namespace InterpretGO.Controllers
         private InterpretGODbContext db = new InterpretGODbContext();
         public IActionResult Index()
         {
-            return View(db.Assignments.ToList());
+            return View(db.Assignments.Include(assignments => assignments.Client).Include(assignments => assignments.Interpreter).ToList());
         }
 
         public IActionResult Details(int id)
@@ -28,15 +28,10 @@ namespace InterpretGO.Controllers
             return View(thisAssignment);
         }
 
-        //public IActionResult Create()
-        //{
-        //    return View();           
-        //}
-
         public IActionResult Create()
         {
             List<SelectListItem> TerpIdList = new List<SelectListItem>();
-            foreach(Interpreter terp in db.Interpreters)
+            foreach (Interpreter terp in db.Interpreters)
             {
                 TerpIdList.Add(new SelectListItem() { Text = terp.Name, Value = terp.InterpreterId.ToString() });
             }
@@ -64,6 +59,7 @@ namespace InterpretGO.Controllers
         public IActionResult Edit(int id)
         {
             var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
+            ViewBag.Terps = new SelectList(db.Interpreters, "InterpreterId", "Name");
             return View(thisAssignment);
         }
 
@@ -85,6 +81,7 @@ namespace InterpretGO.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
+            db.Assignments.Remove(thisAssignment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -9,20 +9,52 @@
 
 <h2>Assigments</h2>
 
-<h4>@Html.DisplayNameFor(model => model.Title)</h4>
-<ul>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Interpreter.Name)
+        </th>
+        <th></th>
+    </tr>
     @foreach (var listAssignment in Model)
     {
-        <li>
-            @Html.DisplayFor(modelAssignment => listAssignment.Title) | @Html.DisplayFor(modelAssignment => listAssignment.Date) | Client: @Html.DisplayFor(modelAssignment => listAssignment.Client.UserName) 
-        </li>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelAssignment => listAssignment.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAssignment => listAssignment.Date)
+            </td>
+            <td>
+                Client: @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+            </td>
+            <td>
+                Interpreter: @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) |
+                @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+            </td>
+        </tr>
 
     }
-</ul>
+    </table>
 
 
 
-<p>@Html.ActionLink("Add new Assignment", "Create")</p>
+
+    <p>@Html.ActionLink("Add new Assignment", "Create")</p>
 
 
-@*@Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })*@
+    @*@Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })*@
