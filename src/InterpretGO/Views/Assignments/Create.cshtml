@@ -12,11 +12,15 @@
     @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(model => model.Title, new { @required = "true" })
 
+    <label>Type of Assignment(i.e., Medical, Education, Community, etc)</label>
     @Html.LabelFor(model => model.Type)
     @Html.TextBoxFor(model => model.Type, new { @required = "true" })
 
+    @Html.LabelFor(model => model.Date)
+    @Html.TextBoxFor(model => model.Date, new { @type = "date" })
+
     @Html.LabelFor(model => model.Duration)
-    @Html.TextBoxFor(model => model.Duration)
+    @Html.TextBoxFor(model => model.Duration, new { @type = "number" })
 
     @Html.LabelFor(model => model.Location)
     @Html.TextBoxFor(model => model.Location)
