@@ -50,6 +50,8 @@ namespace InterpretGO.Controllers
         public IActionResult Create(Assignment assignment)
         {
             Console.WriteLine(assignment);
+            //string newDate = assignment.Date.ToString("mm/dd/yyyy");
+            //assignment.Date = Convert.ToDateTime(newDate);
             db.Assignments.Add(assignment);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -15,7 +15,7 @@ namespace InterpretGO.Models
         public string Type { get; set; }
         public bool Claimed { get; set; }
         public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
         public int Duration { get; set; }
         public string Language { get; set; }
         public string Location { get; set; }

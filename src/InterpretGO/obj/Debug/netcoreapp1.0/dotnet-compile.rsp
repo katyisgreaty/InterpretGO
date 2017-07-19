@@ -220,6 +220,8 @@ C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170516153340_Init
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170516153340_Initial.Designer.cs
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170718222423_AddTimePropertyToAssignment.cs
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170718222423_AddTimePropertyToAssignment.Designer.cs
+C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719232056_ChangeTimeToString.cs
+C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719232056_ChangeTimeToString.Designer.cs
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\InterpretGODbContextModelSnapshot.cs
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Models\ApplicationUser.cs
 C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Models\Assignment.cs

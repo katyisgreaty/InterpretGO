@@ -8,9 +8,10 @@ using InterpretGO.Models;
 namespace InterpretGO.Migrations
 {
     [DbContext(typeof(InterpretGODbContext))]
-    partial class InterpretGODbContextModelSnapshot : ModelSnapshot
+    [Migration("20170719232056_ChangeTimeToString")]
+    partial class ChangeTimeToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")

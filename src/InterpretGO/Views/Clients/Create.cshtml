@@ -9,20 +9,31 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Client.Name)
-    @Html.TextBoxFor(model => model.Client.Name, new { @required = "true" })
+    <div class="row">
+        <span class="form-label">@Html.LabelFor(model => model.Client.Name)</span>
+        @Html.TextBoxFor(model => model.Client.Name, new { @required = "true" })
+    </div>
 
-    @Html.LabelFor(model => model.Client.Language)
-    @Html.DropDownListFor(model => model.Client.Language,
+    <div class="row">
+        <span class="form-label"><label>Language Preference</label></span>
+            @Html.DropDownListFor(model => model.Client.Language,
                     @Model.Languages,
                     "Select Language")
+    </div>
 
-    @Html.LabelFor(model => model.Client.Email)
-    @Html.TextBoxFor(model => model.Client.Email)
+    <div class="row">
+        <span class="form-label">@Html.LabelFor(model => model.Client.Email)</span>
+        @Html.TextBoxFor(model => model.Client.Email)
+</div>
 
-    @Html.LabelFor(model => model.Client.Phone)
-    @Html.TextBoxFor(model => model.Client.Phone)
+    <div class="row">
+        <span class="form-label">@Html.LabelFor(model => model.Client.Phone)</span>
+        @Html.TextBoxFor(model => model.Client.Phone)
+</div>
 
-    <input type="submit" value="Add new deaf client" />
+    <div class="row">
+        <input class="btn add-client-button" type="submit" value="Add new deaf client" />
+    </div>
 }
+
 <p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
