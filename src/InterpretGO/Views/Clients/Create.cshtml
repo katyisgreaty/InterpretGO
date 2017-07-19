@@ -2,26 +2,27 @@
     ViewData["Title"] = "Create Client";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@model InterpretGO.Models.Client
+@using InterpretGO.Models
+@model InterpretGO.ViewModels.ClientsViewModel
 
 <h2>Add new Deaf Client</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name, new { @required = "true" })
+    @Html.LabelFor(model => model.Client.Name)
+    @Html.TextBoxFor(model => model.Client.Name, new { @required = "true" })
 
-    @Html.LabelFor(model => model.Language)
-    @Html.TextBoxFor(model => model.Language, new { @required = "true" })
+    @Html.LabelFor(model => model.Client.Language)
+    @Html.DropDownListFor(model => model.Client.Language,
+                    @Model.Languages,
+                    "Select Language")
 
-    @Html.LabelFor(model => model.Email)
-    @Html.TextBoxFor(model => model.Email)
+    @Html.LabelFor(model => model.Client.Email)
+    @Html.TextBoxFor(model => model.Client.Email)
 
-    @Html.LabelFor(model => model.Phone)
-    @Html.TextBoxFor(model => model.Phone)
+    @Html.LabelFor(model => model.Client.Phone)
+    @Html.TextBoxFor(model => model.Client.Phone)
 
     <input type="submit" value="Add new deaf client" />
 }
 <p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
-</body>

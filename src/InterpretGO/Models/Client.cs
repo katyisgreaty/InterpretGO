@@ -26,5 +26,19 @@ namespace InterpretGO.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public virtual ICollection<Assignment> Assignments { get; set; }
+
+       
     }
+
+    //public string[] Languages = ["ASL",];
+    
+
+    //public enum Language
+    //{
+    //    "ASL",
+    //    "PSE",
+    //    SEE,
+    //    Transliteration,
+    //    Other
+    //}
 }

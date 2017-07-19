@@ -29,5 +29,7 @@ namespace InterpretGO.Models
             Client thisClient = new InterpretGODbContext().Clients.FirstOrDefault(i => i.ClientId == ClientId);
             return thisClient;
         }
+
+       
     }
 }

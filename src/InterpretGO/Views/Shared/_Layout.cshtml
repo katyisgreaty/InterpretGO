@@ -3,17 +3,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" charset="utf-8"/>
-    <script src="~/js/jquery-3.2.1.js" type="text/javascript"></script>
+    @*<script src="~/js/jquery-3.2.1.js" type="text/javascript"></script>*@
     <script src="~/js/jquery-3.2.1.min.js"></script>
     <script src="~/js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
+    <script src="~/js/jquery.timepicker.min.js"></script>
     <script>
-        $('#scrollDefaultExample').timepicker({ 'scrollDefault': 'now' });
+        $('#scrollDefaultExample').timepicker();
     </script>
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
-    <link href="~/css/testSTYLES.css" rel="stylesheet" />
+    <link href="~/css/jquery.timepicker.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
     <title>InterpretGO</title>
 </head>

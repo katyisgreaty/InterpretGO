@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using InterpretGO.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using InterpretGO.ViewModels;
 
 namespace InterpretGO.Controllers
 {
@@ -24,7 +26,18 @@ namespace InterpretGO.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            ClientsViewModel vm = new ClientsViewModel();
+            List<string> languageList = new List<string> { "ASL", "PSE", "SEE", "Transliteration", "Other" };
+            IEnumerable<SelectListItem> Languages =
+                from l in languageList
+                select new SelectListItem
+                {
+                    Text = l,
+                    Value = l
+                };
+            vm.Languages = Languages;
+            vm.Client = new Client();
+            return View(vm);
         }
 
         [HttpPost]
