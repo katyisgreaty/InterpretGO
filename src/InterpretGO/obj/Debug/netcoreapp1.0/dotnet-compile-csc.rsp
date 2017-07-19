@@ -218,6 +218,8 @@
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170718222423_AddTimePropertyToAssignment.Designer.cs"
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719232056_ChangeTimeToString.cs"
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719232056_ChangeTimeToString.Designer.cs"
+"C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719233125_ChangeDatePropertyInAssignmentToExcludeTime.cs"
+"C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\20170719233125_ChangeDatePropertyInAssignmentToExcludeTime.Designer.cs"
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Migrations\InterpretGODbContextModelSnapshot.cs"
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Models\ApplicationUser.cs"
 "C:\Users\Katy\Desktop\InterpretGO\src\InterpretGO\Models\Assignment.cs"
