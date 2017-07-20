@@ -10,4 +10,13 @@ namespace InterpretGO.Models
     {
 
     }
+
+    //Possibly not needed
+    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //{
+    //    public ApplicationDbContext()
+    //        : base("DefaultConnection")
+    //    {
+    //    }
+    //}
 }
