@@ -50,7 +50,11 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) |
                 @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                }
+              
             </td>
         </tr>
 
