@@ -4,116 +4,136 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Http;
-using InterpretGO.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using InterpretGO.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using InterpretGO.ViewModels;
-using InterpretGO.Controllers;
 
-
-namespace InterpretGO.Controllers
+namespace Speech.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
-        private InterpretGODbContext db = new InterpretGODbContext();
+        public InterpretGODbContext _db;
+        public UserManager<ApplicationUser> _userManager;
+        public RoleManager<IdentityRole> _roleManager;
 
-        public ActionResult Create()
+        public RolesController(InterpretGODbContext db, UserManager<ApplicationUser> userManager)
         {
-            return View();
+            _db = db;
+            _userManager = userManager;
         }
 
-        //
-        // POST: /Roles/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public IActionResult Index()
         {
-            try
-            {
-                db.Roles.Add(new Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole()
-                {
-                    Name = collection["RoleName"]
-                });
-                db.SaveChanges();
-                ViewBag.ResultMessage = "Role created successfully !";
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult Index()
-        {
-            var roles = db.Roles.ToList();
+            var roles = _db.Roles.ToList();
             return View(roles);
         }
 
-        public ActionResult Delete(string RoleName)
+        public IActionResult Create()
         {
-            var thisRole = db.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-            db.Roles.Remove(thisRole);
-            db.SaveChanges();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(IdentityRole role)
+        {
+            role.NormalizedName = role.Name.ToString().ToUpper();
+            _db.Roles.Add(role);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Edit(string roleId)
+        {
+            var thisRole = _db.Roles.Where(r => r.Id.Equals(roleId, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            return View(thisRole);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(IdentityRole role)
+        {
+            try
+            {
+                var thisRole = _db.Roles.Where(r => r.Id.Equals(role.Id, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+                _db.Roles.Attach(thisRole);
+                thisRole.Name = role.Name;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return View(role);
+            }
+        }
+
+        public IActionResult Delete(string RoleName)
+        {
+            var thisRole = _db.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            return View(thisRole);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteRole(string RoleName)
+        {
+            var thisRole = _db.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            _db.Roles.Remove(thisRole);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        //Edit not working due to outdated System.Data.Entity.EntityState.Modified
-        //    // GET: /Roles/Edit/5
-        //    public ActionResult Edit(string roleName)
-        //    {
-        //        var thisRole = db.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-
-        //        return View(thisRole);
-        //    }
-
-        //    //
-        //    // POST: /Roles/Edit/5
-        //    [HttpPost]
-        //    [ValidateAntiForgeryToken]
-        //    public ActionResult Edit(Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole role)
-        //    {
-        //        try
-        //        {
-        //            db.Entry(role).State = System.Data.Entity.EntityState.Modified;
-        //            db.SaveChanges();
-
-        //            return RedirectToAction("Index");
-        //        }
-        //        catch
-        //        {
-        //            return View();
-        //        }
-        //    }
-        //}
-
-        public ActionResult ManageUserRoles()
+        public IActionResult Assign()
         {
-            // prepopulat roles for the view dropdown
-            var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr =>
-
-        new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
-            ViewBag.Roles = list;
+            ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
+            ViewBag.UserName = new SelectList(_db.Users, "UserName", "UserName");
             return View();
         }
-        //public UserManager<ApplicationUser> UserManager { get; private set; }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult RoleAddToUser(string UserName, string RoleName)
-        //{
-        //    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-        //    ApplicationUser user = db.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-        //    //var account = new AccountController();
-        //    if (user != null) UserManager.AddToRole(user.Id, RoleName);
 
-        //    ViewBag.ResultMessage = "Role created successfully !";
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddRole(string UserName, string RoleName)
+        {
+            var user = await _userManager.FindByNameAsync(UserName);
+            await _userManager.AddToRoleAsync(user, RoleName);
+            ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
+            ViewBag.UserName = new SelectList(_db.Users, "UserName", "UserName");
+            return RedirectToAction("Index");
+        }
 
-        //    // prepopulat roles for the view dropdown
-        //    var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
-        //    ViewBag.Roles = list;
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GetRoles(string UserName)
+        {
+            if (!string.IsNullOrWhiteSpace(UserName))
+            {
+                ViewBag.RolesForThisUser = await _userManager.GetRolesAsync(await _userManager.FindByNameAsync(UserName));
+            }
+            ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
+            ViewBag.UserName = new SelectList(_db.Users, "UserName", "UserName");
+            return View("Assign");
+        }
 
-        //    return View("ManageUserRoles");
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteRole(string UserName, string RoleName)
+        {
+            var user = await _userManager.FindByNameAsync(UserName);
+
+            if (await _userManager.IsInRoleAsync(user, RoleName))
+            {
+                await _userManager.RemoveFromRoleAsync(user, RoleName);
+                ViewBag.ResultMessage = "Role removed from this user successfully !";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+            }
+            ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
+            ViewBag.UserName = new SelectList(_db.Users, "UserName", "UserName");
+            return View("Assign");
+        }
     }
 }
