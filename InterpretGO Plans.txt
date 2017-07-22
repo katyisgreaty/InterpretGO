@@ -1,5 +1,10 @@
 To Do in InterpretGO:
 
+-deploy to Azure or firefox from caitlin's suggestion?
+-Add page where interpreters can go to see their assignments
+-add links from assignments page to deaf user and terp
+-link assignments to users in addition to models? Or just link model instances to users?(Or only allow user to see a certain interpreter's assignments if their name and the terp model instance's name match?) 
+-OR maybe just add columns to AspNetUser that include Interpreter or Deaf, and other properties, and then get rid of those two models?
 -Find other places where the links should only be visible to certain roles
 -Link user roles to interpreter and client models (when someone registers as a deaf client, have it also make a model for that, or at least link to making a model)
 -Include "accepted" bool change button for terps to accept job
@@ -14,6 +19,7 @@ To Do in InterpretGO:
 -add optional invoice template creator
 
 DONE:
+
 -give authentication user roles
 -fix datetime issues
 -don't let people make new assignment if they are an interpreter or not signed in (I.e., only let deaf users make a new assignment)

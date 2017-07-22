@@ -21,10 +21,10 @@
             @Html.DisplayNameFor(model => model.Time)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Client.Name)
+            <label>Deaf User Name</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Interpreter.Name)
+            <label>Interpreter Name</label>
         </th>
         <th></th>
     </tr>
@@ -42,10 +42,10 @@
                 @Html.DisplayFor(modelAssignment => listAssignment.Time)
             </td>
             <td>
-                Client: @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
             </td>
             <td>
-                Interpreter: @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) |
