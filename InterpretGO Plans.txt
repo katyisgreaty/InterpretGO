@@ -1,0 +1,19 @@
+To Do in InterpretGO:
+
+-Find other places where the links should only be visible to certain roles
+-Link user roles to interpreter and client models (when someone registers as a deaf client, have it also make a model for that, or at least link to making a model)
+-Include "accepted" bool change button for terps to accept job
+-add "any" option to list of interpreters to choose from
+-change assignment "type" to drop down menu
+-add functionality for interpreters to see a list of assignments available to anyone (i.e., not already claimed or earmarked for someone specific)
+-add email notifications functionality
+	-interpreter gets notification when deaf user has requested them for something
+	-deaf person gets notification when interpreter has accepted assignment
+-add explanation to Home Index page
+-style!
+-add optional invoice template creator
+
+DONE:
+-give authentication user roles
+-fix datetime issues
+-don't let people make new assignment if they are an interpreter or not signed in (I.e., only let deaf users make a new assignment)
