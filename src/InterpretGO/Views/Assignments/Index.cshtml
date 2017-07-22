@@ -1,5 +1,5 @@
 ﻿@{
-    
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -54,17 +54,14 @@
                 {
                     @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
                 }
-              
+
             </td>
         </tr>
 
     }
-    </table>
+</table>
 
-
-
-
+@if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
+{
     <p>@Html.ActionLink("Add new Assignment", "Create")</p>
-
-
-    @*@Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) | @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })*@
+}
