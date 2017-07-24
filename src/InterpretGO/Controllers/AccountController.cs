@@ -38,12 +38,35 @@ namespace InterpretGO.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("RedirectToModelCreation");
+                return RedirectToAction("Index");
             }
             else
             {
                 return View();
             }
+        }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Register(RegisterViewModel model)
+        //{
+        //    var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+        //    IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+        //    if (result.Succeeded)
+        //    {
+        //        Profile profile = new Profile { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, UserName = model.UserName, DOB = model.DOB, Comment = model.Comment, ClientFirst = model.ClientFirst, ClientLast = model.ClientLast };
+        //        _db.Profiles.Add(profile);
+        //        _db.SaveChanges();
+        //        return RedirectToAction("Login", "Account");
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+        //}
+
+        public IActionResult RedirectToModelCreation()
+        {
+            return View();
         }
 
         public IActionResult Login()

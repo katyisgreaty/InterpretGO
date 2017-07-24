@@ -11,6 +11,9 @@
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
+    @*<label>Name</label>
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })*@
+
     @Html.LabelFor(m => m.Email)
     @Html.TextBoxFor(m => m.Email)
 
