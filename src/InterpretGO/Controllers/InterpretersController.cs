@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using InterpretGO.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace InterpretGO.Controllers
 {
@@ -34,7 +34,15 @@ namespace InterpretGO.Controllers
             interpreter.UserName = User.Identity.Name;
             db.Interpreters.Add(interpreter);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+
+            }
         }
 
         public IActionResult Edit(int id)

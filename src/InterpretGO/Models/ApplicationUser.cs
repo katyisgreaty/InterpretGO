@@ -8,15 +8,8 @@ namespace InterpretGO.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
+        public string Name { get; set; }
     }
 
-    //Possibly not needed
-    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    //{
-    //    public ApplicationDbContext()
-    //        : base("DefaultConnection")
-    //    {
-    //    }
-    //}
+    
 }

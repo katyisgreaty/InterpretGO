@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    Welcome! Now that you have access to our site, please sign up as either a Deaf/Hard of Hearing User or as an Interpreter.
+</h2>
+<p>
+    As a Deaf or Hard of Hearing User, you will be able to create requests for interpreters for specific events, see all requests, and check which events have been confirmed by the interpreters.
+</p>
+<p>
+    As an Interpreter, you will be able to see a list of jobs you have been requested for, as well as jobs that are open for any interpreter to claim. You can accept any of these types of events and then see the list of your confirmed assignments.
+</p>
+@Html.ActionLink("Sign up as a Deaf User", "Create", "Clients")
+
+@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")
