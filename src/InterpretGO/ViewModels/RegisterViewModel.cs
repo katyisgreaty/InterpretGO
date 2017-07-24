@@ -8,9 +8,29 @@ namespace InterpretGO.ViewModels
 {
     public class RegisterViewModel
     {
-        //[Required]
-        //[Display(Name = "User Name")]
-        //public string UserName { get; set; }
+        [Required]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display (Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display (Name = "Phone")]
+        public string Phone { get; set; }
+
+        [Display (Name = "Specialty")]
+        public string Specialty { get; set; }
+
+        [Display (Name = "Certification")]
+        public string Certification { get; set; }
+
+        [Display (Name = "Rate")]
+        public int Rate { get; set; }
+
+        [Display (Name = "Language")]
+        public string Language { get; set; }
 
         [Required]
         [EmailAddress]
