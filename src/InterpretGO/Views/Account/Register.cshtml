@@ -11,36 +11,17 @@
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-
-    @Html.LabelFor(m => m.Phone)
-    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+    @*<label>Name</label>
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })*@
 
     @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Email)
 
     @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    @Html.PasswordFor(m => m.Password)
 
     @Html.LabelFor(m => m.ConfirmPassword)
-    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-
-    <h3>If you are registering as a Deaf or Hard of Hearing User, please fillout the following fields as well:</h3>
-
-    <label>Language Preference (required for Deaf/HH)</label>
-    @Html.TextBoxFor(m => m.Language, new { @class = "form-control" })
-
-    <h3>If you are registering as an Interpreter, please fill out the following fields:</h3>
-
-    @Html.LabelFor(m => m.Specialty)
-    @Html.TextBoxFor(m => m.Specialty, new { @class = "form-control" })
-
-    <label>Certifications (Do not leave blank. If none, put "none.")</label>
-    @Html.TextBoxFor(m => m.Certification, new { @class = "form-control" })
-
-    @Html.LabelFor(m => m.Rate)
-    <span>$</span>@Html.TextBoxFor(m => m.Rate, new { @type = "number" })<span>/hour</span>
+    @Html.PasswordFor(m => m.ConfirmPassword)
 
     <input type="submit" value="Register" />
 }

@@ -8,8 +8,7 @@ namespace InterpretGO.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public Client Client { get; set; }
-        public Interpreter Interpreter { get; set; }
+      
     }
 
     
