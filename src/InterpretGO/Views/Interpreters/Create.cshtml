@@ -19,9 +19,9 @@
     @Html.TextBoxFor(model => model.Certification)
 
     @Html.LabelFor(model => model.Rate)
-    @Html.TextBoxFor(model => model.Rate, new { @required = "true" })
+    <span>$</span>@Html.TextBoxFor(model => model.Rate, new { @type = "number", @required = "true" }) <span>/hour</span>
 
-    @Html.LabelFor(model => model.Email)
+    <label>Email Address (Use the same as your user registration)</label>
     @Html.TextBoxFor(model => model.Email, new { @required = "true" })
 
     @Html.LabelFor(model => model.Phone)

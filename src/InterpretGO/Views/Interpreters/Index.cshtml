@@ -10,12 +10,14 @@
 <h2>Interpreters</h2>
 <h4>@Html.DisplayNameFor(model => model.Name)</h4>
 <ul>
-    @foreach (var listInterpreter in Model)
+    @foreach(var listInterpreter in Model)
     {
+        @if (listInterpreter.Name != "No Interpreter Preference")
+        {
         <li>@Html.DisplayFor(modelInterpreter => listInterpreter.Name) | @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
         </li>
-        
-    }
+            }
+        }
 </ul>
 
 <p>@Html.ActionLink("Add new interpreter", "Create")</p>

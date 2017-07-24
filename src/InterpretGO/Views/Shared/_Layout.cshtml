@@ -36,10 +36,15 @@
                 <li class="nav-item nav-item-adjustment">
                     <h5 class="nav-space">@Html.ActionLink("Clients", "Index", "Clients")</h5>
                 </li>
+                </ul>
+            <ul class="nav navbar-nav navbar-right">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="logoff-links">
-                        @Html.ActionLink("Log Out", "LogOff", "Account")
+                    <li class="nav-item nav-item-adjustment">
+                        <span>@User.Identity.Name</span>
+                    </li>
+                    <li class="logoff-links nav-item nav-item-adjustment">
+                        <span class="btn btn-info">@Html.ActionLink("Log Out", "LogOff", "Account")</span>
                     </li>
                 }
             </ul>
