@@ -9,7 +9,6 @@
 
 <h2>Assigments</h2>
 
-<p>@Html.ActionLink("List of My Assignments", "List")</p>
 
 <table class="table">
     <tr>
@@ -32,7 +31,8 @@
     </tr>
     @foreach (var listAssignment in Model)
     {
-
+        @if (listAssignment.Interpreter.Email == @User.Identity.Name)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelAssignment => listAssignment.Title)
@@ -59,13 +59,18 @@
 
             </td>
         </tr>
+        }
+        else
+        {
+            <tr>
+                <td>You do not have any assignments!</td>
+            </tr>
 
-    }
+        }
+        }
 </table>
 
 @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
 {
     <p>@Html.ActionLink("Add new Assignment", "Create")</p>
 }
-
-

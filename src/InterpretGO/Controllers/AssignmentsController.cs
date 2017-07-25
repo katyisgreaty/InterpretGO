@@ -22,6 +22,11 @@ namespace InterpretGO.Controllers
             return View(db.Assignments.Include(assignments => assignments.Client).Include(assignments => assignments.Interpreter).ToList());
         }
 
+        public IActionResult List()
+        {
+            return View(db.Assignments.Include(assignments => assignments.Client).Include(assignments => assignments.Interpreter).ToList());
+        }
+
         public IActionResult Details(int id)
         {
             var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
