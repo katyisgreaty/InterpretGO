@@ -8,22 +8,26 @@
 
 
 <h2>Clients</h2>
+
 <h4>@Html.DisplayNameFor(model => model.Name)</h4>
-<ul>
-    @foreach (var listClient in Model)
-    {
-       
-        <li>
-            <span class="interpreter-index-name">
+
+@if (User.IsInRole("Admin"))
+{
+    <ul>
+        @foreach (var listClient in Model)
+        {
+
+          <li>
+             <span class="interpreter-index-name">
                 @Html.DisplayFor(modelClient => listClient.Name)
-            </span>
-            @if (User.Identity.IsAuthenticated)
-                {
+             </span>
+             @if (User.Identity.IsAuthenticated)
+             {
                 <span class="interpreter-index-list">
                     @Html.ActionLink("Details", "Details", new { id = listClient.ClientId })
                 </span>
 
-                    @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("Admin"))
                     {
                         <span class="interpreter-index-list">
                             @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId })
@@ -32,9 +36,29 @@
                             @Html.ActionLink("Delete", "Delete", new { id = listClient.ClientId })
                         </span>;
                     }
-                }
-        </li>
-    }
-</ul>
+            }
+          </li>
+        }
+    </ul>
+}
+else
+{
+    <ul>
+        @foreach (var listClient in Model)
+        {
+            @if (listClient.Email.ToUpper() == @User.Identity.Name.ToUpper())
+            {
+                <li>
+                    <span class="interpreter-index-name">
+                        @Html.DisplayFor(modelClient => listClient.Name)
+                    </span>
+                    <span class="interpreter-index-list">
+                        @Html.ActionLink("Details", "Details", new { id = listClient.ClientId })
+                    </span>
+                </li>
+            }
+        }
+    </ul>
+}
 
 <p>@Html.ActionLink("Add new Client", "Create")</p>
