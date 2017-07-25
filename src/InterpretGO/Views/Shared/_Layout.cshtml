@@ -26,25 +26,30 @@
         <h3 class="navbar-brand">@Html.ActionLink("InterpretGO", "Index", "Home")</h3>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <h5 class="nav-space">@Html.ActionLink("Events and Requests", "Index", "Assignments")</h5>
-                </li>
-                <li class="nav-item nav-item-adjustment">
-                    <h5 class="nav-space">@Html.ActionLink("Interpreters", "Index", "Interpreters")</h5>
-                </li>
-                <li class="nav-item nav-item-adjustment">
-                    <h5 class="nav-space">@Html.ActionLink("Clients", "Index", "Clients")</h5>
-                </li>
-                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <li class="nav-item">
+                        <h5 class="nav-space">@Html.ActionLink("Events and Requests", "Index", "Assignments")</h5>
+                    </li>
+                    <li class="nav-item nav-item-adjustment">
+                        <h5 class="nav-space">@Html.ActionLink("Interpreters", "Index", "Interpreters")</h5>
+                    </li>
+                    <li class="nav-item nav-item-adjustment">
+                        <h5 class="nav-space">@Html.ActionLink("Clients", "Index", "Clients")</h5>
+                    </li>
+                }
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="nav-item nav-item-adjustment">
+                    <li class="nav-item nav-item-adjustment navbar-right">
                         <span>@User.Identity.Name</span>
                     </li>
-                    <li class="logoff-links nav-item nav-item-adjustment">
-                        <span class="btn btn-info">@Html.ActionLink("Log Out", "LogOff", "Account")</span>
+                    <li class="nav-item nav-item-adjustment">
+                        <span class="logoff-links">@Html.ActionLink("Log Out", "LogOff", "Account")</span>
                     </li>
                 }
                 @if (!User.Identity.IsAuthenticated)

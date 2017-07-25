@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Index Interpreters";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,21 +18,31 @@
         @if (listInterpreter.Name != "No Interpreter Preference")
         {
             <li>
-                @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId })
-
-                @if (User.IsInRole("Admin"))
+                <span class="interpreter-index-name">
+                    @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
+                </span>
+                @if (User.Identity.IsAuthenticated)
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId })
-                    @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId });
+                    <span class="interpreter-index-list">
+                        @Html.ActionLink("Details", "Details", new { id =   listInterpreter.InterpreterId })
+                    </span>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <span class="interpreter-index-list">
+                        @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId })
+                    </span>
+                    <span class="interpreter-index-list">
+                        @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
+                    </span>;
+                    }
                 }
-            }
-        </li>
+            </li>
 
         }
     }
 </ul>
-
-<p>@Html.ActionLink("Add new interpreter", "Create")</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@Html.ActionLink("Add new interpreter", "Create")</p>
+}

@@ -12,10 +12,28 @@
 <ul>
     @foreach (var listClient in Model)
     {
+       
         <li>
-            @Html.DisplayFor(modelClient => listClient.Name) | @Html.ActionLink("Details", "Details", new { id = listClient.ClientId }) | @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId }) | @Html.ActionLink("Delete", "Delete", new { id = listClient.ClientId })
-        </li>
+            <span class="interpreter-index-name">
+                @Html.DisplayFor(modelClient => listClient.Name)
+            </span>
+            @if (User.Identity.IsAuthenticated)
+                {
+                <span class="interpreter-index-list">
+                    @Html.ActionLink("Details", "Details", new { id = listClient.ClientId })
+                </span>
 
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span class="interpreter-index-list">
+                            @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId })
+                        </span>
+                        <span class="interpreter-index-list">
+                            @Html.ActionLink("Delete", "Delete", new { id = listClient.ClientId })
+                        </span>;
+                    }
+                }
+        </li>
     }
 </ul>
 

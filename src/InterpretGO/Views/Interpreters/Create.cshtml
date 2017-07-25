@@ -9,25 +9,51 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name, new { @required = "true" })
+    <div class="row">
+        <span class="form-label">
+            @Html.LabelFor(model => model.Name)
+        </span>
+        @Html.TextBoxFor(model => model.Name, new { @required = "true" })
+    </div>
 
-    @Html.LabelFor(model => model.Specialty)
-    @Html.TextBoxFor(model => model.Specialty, new { @required = "true" })
+    <div class="row">
+        <span class="form-label">
+            @Html.LabelFor(model => model.Specialty)
+        </span>
+        @Html.TextBoxFor(model => model.Specialty, new { @required = "true" })
+    </div>
 
-    @Html.LabelFor(model => model.Certification)
-    @Html.TextBoxFor(model => model.Certification)
+    <div class="row">
+        <span class="form-label">
+            @Html.LabelFor(model => model.Certification)
+        </span>
+        @Html.TextBoxFor(model => model.Certification)
+    </div>
 
-    @Html.LabelFor(model => model.Rate)
-    <span>$</span>@Html.TextBoxFor(model => model.Rate, new { @type = "number", @required = "true" }) <span>/hour</span>
+    <div class="row">
+        <span class="form-label">
+            @Html.LabelFor(model => model.Rate)
+        </span>
+        <span>$</span>@Html.TextBoxFor(model => model.Rate, new { @type = "number", @required = "true" }) <span>/hour</span>
+    </div>
 
-    <label>Email Address (Use the same as your user registration)</label>
-    @Html.TextBoxFor(model => model.Email, new { @required = "true" })
+    <div class="row">
+        <span class="form-label">
+            <label>Email Address<br />
+            (Use the same as your user registration)</label>
+        </span>
+        @Html.TextBoxFor(model => model.Email, new { @required = "true" })
+    </div>
 
-    @Html.LabelFor(model => model.Phone)
-    @Html.TextBoxFor(model => model.Phone)
+    <div class="row">
+        <span class="form-label">
+            @Html.LabelFor(model => model.Phone)
+        </span>
+        @Html.TextBoxFor(model => model.Phone)
+    </div>
 
-    <input type="submit" value="Add new interpreter" />
+    <div class="row">
+        <input type="submit" class="btn add-button" value="Add new interpreter" />
+    </div>
 }
 <p>@Html.ActionLink("Back to list of interpreters", "Index")</p>
-</body>
