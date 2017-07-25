@@ -31,14 +31,13 @@
     @Html.LabelFor(model => model.Language)
     @Html.EditorFor(model => model.Language)
 
-    @Html.LabelFor(model => model.Client)
-    @Html.EditorFor(model => model.Client)
+    @Html.LabelFor(model => model.Client.ClientId)
+    @Html.EditorFor(model => model.Client.ClientId)
 
-    <label>Interpreter</label>
-    <div class="form-group">
-        @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
-    </div>
+    @Html.LabelFor(model => model.Interpreter.InterpreterId)
+    @Html.EditorFor(model => model.Interpreter.InterpreterId)
 
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to list of assignments", "Index")</p>
+
