@@ -8,16 +8,31 @@
 
 
 <h2>Interpreters</h2>
-<h4>@Html.DisplayNameFor(model => model.Name)</h4>
+@if (!User.Identity.IsAuthenticated)
+{
+    <p>Sign in or Register to see more details!</p>
+}
 <ul>
-    @foreach(var listInterpreter in Model)
+    @foreach (var listInterpreter in Model)
     {
         @if (listInterpreter.Name != "No Interpreter Preference")
         {
-        <li>@Html.DisplayFor(modelInterpreter => listInterpreter.Name) | @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId }) | @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
-        </li>
+            <li>
+                @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId })
+
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId })
+                    @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId });
+                }
             }
+        </li>
+
         }
+    }
 </ul>
 
 <p>@Html.ActionLink("Add new interpreter", "Create")</p>

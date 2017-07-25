@@ -22,3 +22,11 @@
     margin: 20px;
     margin-top: 30px;
 }
+
+.terp-detail-head {
+    min-width: 110px !important;
+}
+
+.nav-custom-spacing {
+    margin-right: 20px;
+}

@@ -47,6 +47,15 @@
                         <span class="btn btn-info">@Html.ActionLink("Log Out", "LogOff", "Account")</span>
                     </li>
                 }
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-custom-spacing nav-item nav-item-adjustment">
+                        @Html.ActionLink("Log In", "Login", "Account")
+                    </li>
+                    <li class="nav-item nav-item-adjustment">
+                        @Html.ActionLink("Register", "Register", "Account")
+                    </li>
+                }
             </ul>
         </div>
     </nav>

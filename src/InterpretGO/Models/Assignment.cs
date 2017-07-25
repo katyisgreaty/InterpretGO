@@ -8,7 +8,6 @@ namespace InterpretGO.Models
 {
     public class Assignment
     {
-        //How to assign client and interpreter to this assignment from id?
         [Key]
         public int AssignmentId { get; set; }
         public string Title { get; set; }
