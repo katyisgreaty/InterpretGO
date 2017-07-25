@@ -2,15 +2,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>
-    Welcome! Now that you have access to our site, please sign up as either a Deaf/Hard of Hearing User or as an Interpreter.
-</h2>
-<p>
-    As a Deaf or Hard of Hearing User, you will be able to create requests for interpreters for specific events, see all requests, and check which events have been confirmed by the interpreters.
-</p>
-<p>
-    As an Interpreter, you will be able to see a list of jobs you have been requested for, as well as jobs that are open for any interpreter to claim. You can accept any of these types of events and then see the list of your confirmed assignments.
-</p>
-@Html.ActionLink("Sign up as a Deaf User", "Create", "Clients")
-
-@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")
+<h1 class="welcome">Welcome!</h1>
+<h3 class="welcome-text">Now that you have access to our site, please sign up as either a Deaf/Hard of Hearing User or as an Interpreter.
+</h3>
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/img/user.svg" alt="Image icon of an outline of a person's head and torso with checkmark" class="welcome-icons">
+        <p class="welcome-text">
+            As a Deaf or Hard of Hearing User, you will be able to create requests for interpreters for specific events, see all requests, and check which events have been confirmed by the interpreters.
+        </p>
+        <span class="welcome-text">@Html.ActionLink("Sign up as a Deaf User", "Create", "Clients")</span>
+</div>
+    <div class="col-md-6">
+        <img src="~/img/terp-symbol.png" alt="interpreter symbol" class="welcome-icons"/>
+        <p class="welcome-text">
+            As an Interpreter, you will be able to see a list of jobs you have been requested for, as well as jobs that are open for any interpreter to claim. You can accept any of these types of events and then see the list of your confirmed assignments.
+        </p>
+        <span class="welcome-text">@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")</span>
+    </div>
+</div>

@@ -24,9 +24,30 @@
 }
 
 .terp-detail-head {
-    min-width: 110px !important;
+    min-width: 110px;
 }
 
 .nav-custom-spacing {
     margin-right: 20px;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+}
+ .welcome-text {
+     text-align: center;
+ }
+
+ .welcome-text a {
+     margin-left: 30%;
+ }
+
+.welcome-icons {
+    width: 250px;
+    height: 250px;
+    margin-left: 26%;
+    margin-top: 20%;
+    margin-bottom: 10px;
 }
