@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Claim Assignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model InterpretGO.Models.Assignment
+
+<h2>Claim</h2>
+<hr />
+<h4>Claim this assignment: @Html.DisplayFor(model => model.Title)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AssignmentId)
+
+    @Html.HiddenFor(model => model.Client.ClientId)
+
+
+    <label>Interpreter Claiming this Assignment</label>
+    <div class="form-group">
+        @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+    </div>
+
+    <label>Claim this Assignment</label>
+    @Html.CheckBoxFor(model => model.Claimed)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list of assignments", "Index")</p>

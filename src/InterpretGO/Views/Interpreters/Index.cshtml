@@ -12,36 +12,51 @@
 {
     <p>Sign in or Register to see more details!</p>
 }
-<ul>
+<table class="table">
+    <tr>
+        <th>Interpreter Name</th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th>Email Address</th>
+                    <th>Options</th>
+        }
+    </tr>
+
     @foreach (var listInterpreter in Model)
     {
         @if (listInterpreter.Name != "No Interpreter Preference")
         {
-            <li>
-                <span class="interpreter-index-name">
+
+            <tr>
+                <td class="interpreter-index-name">
                     @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
-                </span>
+                </td>
+
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <span class="interpreter-index-list">
-                        @Html.ActionLink("Details", "Details", new { id =   listInterpreter.InterpreterId })
-                    </span>
+                    <td>@Html.DisplayFor(modelInterpreter => listInterpreter.Email)</td>
 
-                    @if (User.IsInRole("Admin"))
-                    {
-                    <span class="interpreter-index-list">
-                        @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId })
-                    </span>
-                    <span class="interpreter-index-list">
-                        @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
-                    </span>;
-                    }
+                    <td class="interpreter-index-list">
+                        @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId }) 
+                    </td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = listInterpreter.InterpreterId })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
+                                
+                            </td>;
+
+                        }
                 }
-            </li>
-
+            </tr>
         }
     }
-</ul>
+</table>
+        
+
 @if (User.Identity.IsAuthenticated)
 {
     <p>@Html.ActionLink("Add new interpreter", "Create")</p>

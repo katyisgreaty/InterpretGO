@@ -55,9 +55,6 @@ namespace InterpretGO.Controllers
         [HttpPost]
         public IActionResult Create(Assignment assignment)
         {
-            Console.WriteLine(assignment);
-            //string newDate = assignment.Date.ToString("mm/dd/yyyy");
-            //assignment.Date = Convert.ToDateTime(newDate);
             db.Assignments.Add(assignment);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -66,13 +63,47 @@ namespace InterpretGO.Controllers
 
         public IActionResult Edit(int id)
         {
+            List<SelectListItem> TerpIdList = new List<SelectListItem>();
+            foreach (Interpreter terp in db.Interpreters)
+            {
+                TerpIdList.Add(new SelectListItem() { Text = terp.Name, Value = terp.InterpreterId.ToString() });
+            }
+            ViewBag.Terps = TerpIdList;
+            List<SelectListItem> ClientIdList = new List<SelectListItem>();
+            foreach (Client client in db.Clients)
+            {
+                ClientIdList.Add(new SelectListItem() { Text = client.Name, Value = client.ClientId.ToString() });
+            }
+            ViewBag.Clients = ClientIdList;
             var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
-            ViewBag.Terps = new SelectList(db.Interpreters, "InterpreterId", "Name");
             return View(thisAssignment);
         }
 
         [HttpPost]
         public IActionResult Edit(Assignment assignment)
+        {
+            db.Entry(assignment).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Claim(int id)
+        {
+            List<SelectListItem> TerpIdList = new List<SelectListItem>();
+            foreach (Interpreter terp in db.Interpreters)
+            {
+                if(terp.Name != "No Interpreter Preference")
+                {
+                    TerpIdList.Add(new SelectListItem() { Text = terp.Name, Value = terp.InterpreterId.ToString() });
+                }
+            }
+            ViewBag.Terps = TerpIdList;
+            var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
+            return View(thisAssignment);
+        }
+
+        [HttpPost]
+        public IActionResult Claim(Assignment assignment)
         {
             db.Entry(assignment).State = EntityState.Modified;
             db.SaveChanges();

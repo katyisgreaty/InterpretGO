@@ -28,6 +28,7 @@
         <th>
             <label>Interpreter Name</label>
         </th>
+        <th>Claimed?</th>
         <th></th>
     </tr>
     @foreach (var listAssignment in Model)
@@ -48,6 +49,19 @@
             </td>
             <td>
                 @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+            </td>
+            <td>
+                @if(listAssignment.Claimed == false)
+                {
+                    <span>Not yet!</span>
+                    <br />
+                    @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                }
+                else
+                {
+                    <span>Yes</span>
+                }
+                
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) |
