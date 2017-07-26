@@ -10,20 +10,12 @@
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        <p>@Html.ActionLink("Roles", "Index", "Roles")</p>
-    }
-    <p>@Html.ActionLink("Interpreters", "Index", "Interpreters")</p>
-    <p>@Html.ActionLink("Clients", "Index", "Clients")</p>
-
 }
 else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
-    
 }
 
 

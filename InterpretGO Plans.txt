@@ -1,19 +1,12 @@
 To Do in InterpretGO:
 
-
--Add page where interpreters can go to see their assignments - 3 hrs
 -add links from assignments page to deaf user and terp - 1 hr
 -Find other places where the links should only be visible to certain roles - 0.5 hrs
--Link user roles to interpreter and client models - have a link to make the model page after registration - 2 hrs
 -Include "accepted" bool change button for terps to accept job - 3 hrs
--add functionality for interpreters to see a list of assignments available to anyone (i.e., not already claimed or earmarked for someone specific) - 4 hrs
--add email notifications functionality - 7 hrs
-	-interpreter gets notification when deaf user has requested them for something
-	-deaf person gets notification when interpreter has accepted assignment
+-add functionality for interpreters to see a list of assignments available to anyone (i.e., not already claimed or earmarked for someone specific) - 2 hrs
 -add explanation to Home Index page - 1 hr
--add "any" option to list of interpreters to choose from - 1 hr
 -style! - 5 hrs
--deploy to Azure or firefox or gh pages from caitlin's suggestion? - 3 hrs
+-deploy to Azure or firefox or gh pages from caitlin's suggestion? - 6 hrs
 
 
 For Future Katy:
@@ -23,9 +16,15 @@ For Future Katy:
 -OR maybe just add columns to AspNetUser that include Interpreter or Deaf, and other properties, and then get rid
 	of those two models?
 -change assignment "type" to drop down menu - 2 hrs
+-add email notifications functionality - 7 hrs
+	-interpreter gets notification when deaf user has requested them for something
+	-deaf person gets notification when interpreter has accepted assignment
 
 DONE:
 
 -give authentication user roles
 -fix datetime issues
 -don't let people make new assignment if they are an interpreter or not signed in (I.e., only let deaf users make a new assignment)
+-Add page where interpreters can go to see their assignments - 3 hrs
+-Link user roles to interpreter and client models - have a link to make the model page after registration - 2 hrs
+-add "any" option to list of interpreters to choose from - 1 hr
