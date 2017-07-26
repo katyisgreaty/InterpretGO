@@ -1,51 +1,10 @@
-﻿body {
+﻿/*General*/
+
+body {
     font-size: 20px;
 }
 
-/*Navigation Bar*/
-
-.nav-space a {
-    color: orange !important;
-    padding-right: 40px;
-}
-
-.nav-space a:hover {
-    color: salmon !important;
-    padding-right: 40px;
-    text-decoration: none;
-}
-
-.logoff-links {
-    margin-left: 20px;
-}
-
-/*Home > Index page*/
-
-.home-page {
-    background-image: url('../img/person5.jpeg');
-    background-size: cover;
-    background-position: center;
-    height: 95vh;
-}
-
-/*Forms*/
-
-.form-label label {
-    min-width: 210px;
-}
-
-.add-client-button {
-    margin: 20px;
-    margin-top: 30px;
-}
-
-.terp-detail-head {
-    min-width: 110px;
-}
-
-.nav-custom-spacing {
-    margin-right: 20px;
-}
+/*Account RedirectToModelCreation Page*/
 
 .welcome {
     text-align: center;
@@ -68,9 +27,51 @@
     margin-bottom: 10px;
 }
 
-.add-button {
-    margin: 15px;
+/*Assignments List Page*/
+
+#list-head {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
+#list-not-logged-in-subhead {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.list-table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Client Index Page*/
+
+.client-header {
+    margin-top: 20px;
+}
+
+/*Client Create Page*/
+
+.form-label label {
+    min-width: 210px;
+}
+
+.add-client-button {
+    margin: 20px;
+    margin-top: 30px;
+}
+
+/*Home Index page*/
+
+.home-page {
+    background-image: url('../img/person5.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+}
+
+/*Interpreter Index Page*/
 
 .interpreter-index-list {
     margin-left: 10px;
@@ -81,7 +82,36 @@
     width: 200px !important;
 }
 
-.client-header {
-    margin-top: 20px;
+/*Interpreter Create Page*/
+
+.add-button {
+    margin: 15px;
+}
+
+/*Interpreter details Page*/
+
+.terp-detail-head {
+    min-width: 110px;
+}
+
+/*Layout*/
+
+.nav-space a {
+    color: orange !important;
+    padding-right: 40px;
+}
+
+.nav-space a:hover {
+    color: salmon !important;
+    padding-right: 40px;
+    text-decoration: none;
+}
+
+.logoff-links {
+    margin-left: 20px;
+}
+
+.nav-custom-spacing {
+    margin-right: 20px;
 }
 

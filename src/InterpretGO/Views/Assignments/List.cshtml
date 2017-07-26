@@ -8,15 +8,18 @@
 
 
 
-<h2>Your Events</h2>
+<h2 id="list-head">Your Events</h2>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <h4 id="list-not-logged-in-subhead">Please log in to view your events!</h4>
+}
 
 @if (User.IsInRole("Interpreter"))
 {
-    <h3>Your Requested Assigments</h3>
-    @*@if (ViewBag.AssignmentsListCount > 0)
-    {*@
-        
-    <table class="table">
+    <h3 class="list-subhead">Your Requested Assigments</h3>
+            
+    <table class="table list-table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
@@ -86,8 +89,8 @@
 
 @if (User.IsInRole("Interpreter"))
 {
-    <h3>Your Confirmed Assignments</h3>
-    <table class="table">
+    <h3 class="list-subhead">Your Confirmed Assignments</h3>
+    <table class="table list-table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
@@ -153,9 +156,9 @@
 
 @if (User.IsInRole("Deaf User"))
 {
-    <h3>Your Requested Assigments</h3>
+    <h3 class="list-subhead">Events Waiting for Interpreter Confirmation</h3>
 
-    <table class="table">
+    <table class="table list-table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
@@ -226,8 +229,8 @@
 
     @if (User.IsInRole("Deaf User"))
     {
-        <h3>Your Confirmed Assignments</h3>
-        <table class="table">
+        <h3 class="list-subhead">Events with Confirmed Interpreters</h3>
+        <table class="table list-table">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Title)
