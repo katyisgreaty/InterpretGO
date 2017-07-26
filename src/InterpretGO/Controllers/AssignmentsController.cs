@@ -69,19 +69,29 @@ namespace InterpretGO.Controllers
                 TerpIdList.Add(new SelectListItem() { Text = terp.Name, Value = terp.InterpreterId.ToString() });
             }
             ViewBag.Terps = TerpIdList;
+
             List<SelectListItem> ClientIdList = new List<SelectListItem>();
             foreach (Client client in db.Clients)
             {
                 ClientIdList.Add(new SelectListItem() { Text = client.Name, Value = client.ClientId.ToString() });
             }
             ViewBag.Clients = ClientIdList;
+
             var thisAssignment = db.Assignments.FirstOrDefault(assignments => assignments.AssignmentId == id);
+
+            ViewBag.OriginInterpreterId = thisAssignment.InterpreterId;
+
             return View(thisAssignment);
         }
 
         [HttpPost]
         public IActionResult Edit(Assignment assignment)
         {
+            var thisAssignment = db.Assignments.AsNoTracking().FirstOrDefault(assignments => assignments.AssignmentId == assignment.AssignmentId);
+            if (assignment.InterpreterId != thisAssignment.InterpreterId)
+            {
+                assignment.Claimed = false;
+            }
             db.Entry(assignment).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");

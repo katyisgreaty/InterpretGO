@@ -14,7 +14,6 @@
     @Html.HiddenFor(model => model.AssignmentId)
     @Html.HiddenFor(model => model.Claimed)
 
-
     @Html.LabelFor(model => model.Title)
     @Html.EditorFor(model => model.Title)
 
@@ -33,11 +32,39 @@
     @Html.LabelFor(model => model.Language)
     @Html.EditorFor(model => model.Language)
 
-    @Html.LabelFor(model => model.ClientId)
-    @Html.EditorFor(model => model.ClientId)
+    @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+    {
+        <div class="row">
+            <label>Interpreter Name</label>
+            <div class="form-group">
+                @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(model => model.InterpreterId)
+    }
 
-    @Html.LabelFor(model => model.InterpreterId)
-    @Html.EditorFor(model => model.InterpreterId)
+    @*@Html.HiddenFor("OriginInterpreterId", (int)ViewBag.OriginInterpreterId)*@
+
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="row">
+            <label>Client Name</label>
+            <div class="form-group">
+                @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(model=>model.ClientId)
+
+    }
+
+
 
     <input type="submit" value="Save" />
 }
