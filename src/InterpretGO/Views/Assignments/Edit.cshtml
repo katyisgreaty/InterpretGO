@@ -46,9 +46,6 @@
         @Html.HiddenFor(model => model.InterpreterId)
     }
 
-    @*@Html.HiddenFor("OriginInterpreterId", (int)ViewBag.OriginInterpreterId)*@
-
-
     @if (User.IsInRole("Admin"))
     {
         <div class="row">

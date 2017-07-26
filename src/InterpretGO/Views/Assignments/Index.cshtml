@@ -51,17 +51,19 @@
                 @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
             </td>
             <td>
-                @if(listAssignment.Claimed == false)
+                @if (listAssignment.Claimed == false)
                 {
                     <span>Not yet!</span>
+                    @if (User.Identity.Name == listAssignment.Interpreter.Email)
+                    {
                     <br />
                     @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
-                }
-                else
-                {
+                        }
+                    }
+                    else
+                    {
                     <span>Yes</span>
-                }
-                
+                }                
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
