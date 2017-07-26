@@ -13,7 +13,22 @@
 {
     @Html.HiddenFor(model => model.AssignmentId)
 
-    @Html.HiddenFor(model => model.Client.ClientId)
+    @Html.HiddenFor(model => model.ClientId)
+
+    @Html.HiddenFor(model => model.Title)
+
+    @Html.HiddenFor(model => model.Type)
+
+    @Html.HiddenFor(model => model.Date)
+
+    @Html.HiddenFor(model => model.Duration)
+
+    @Html.HiddenFor(model => model.Location)
+
+    @Html.HiddenFor(model => model.Language)
+
+    @Html.HiddenFor(model => model.InterpreterId)
+
 
 
     <label>Interpreter Claiming this Assignment</label>

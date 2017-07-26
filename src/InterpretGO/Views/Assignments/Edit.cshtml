@@ -12,6 +12,8 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.AssignmentId)
+    @Html.HiddenFor(model => model.Claimed)
+
 
     @Html.LabelFor(model => model.Title)
     @Html.EditorFor(model => model.Title)
@@ -31,11 +33,11 @@
     @Html.LabelFor(model => model.Language)
     @Html.EditorFor(model => model.Language)
 
-    @Html.LabelFor(model => model.Client.ClientId)
-    @Html.EditorFor(model => model.Client.ClientId)
+    @Html.LabelFor(model => model.ClientId)
+    @Html.EditorFor(model => model.ClientId)
 
-    @Html.LabelFor(model => model.Interpreter.InterpreterId)
-    @Html.EditorFor(model => model.Interpreter.InterpreterId)
+    @Html.LabelFor(model => model.InterpreterId)
+    @Html.EditorFor(model => model.InterpreterId)
 
     <input type="submit" value="Save" />
 }
