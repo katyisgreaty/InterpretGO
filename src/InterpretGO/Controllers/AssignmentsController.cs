@@ -24,6 +24,8 @@ namespace InterpretGO.Controllers
 
         public IActionResult List()
         {
+            //int AssignmentListNumber = db.Assignments.Count();
+            //ViewBag.AssignmentsListCount = AssignmentListNumber;
             return View(db.Assignments.Include(assignments => assignments.Client).Include(assignments => assignments.Interpreter).ToList());
         }
 

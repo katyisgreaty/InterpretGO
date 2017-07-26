@@ -7,64 +7,289 @@
 
 
 
-<h2>Assigments</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
-            <label>Deaf User Name</label>
-        </th>
-        <th>
-            <label>Interpreter Name</label>
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var listAssignment in Model)
-    {
-        @if ((listAssignment.Interpreter.Email.ToUpper() == @User.Identity.Name.ToUpper()) || (listAssignment.Client.Email.ToUpper() == User.Identity.Name.ToUpper()))
-        {
+<h2>Your Events</h2>
+
+@if (User.IsInRole("Interpreter"))
+{
+    <h3>Your Requested Assigments</h3>
+    @*@if (ViewBag.AssignmentsListCount > 0)
+    {*@
+        
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId }) |
-                @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
-                }
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                Deaf User Name
+            </th>
+            <th>
+                Interpreter Name
+            </th>
+            <th>Claimed?</th>
 
-            </td>
+            <th>Options</th>
         </tr>
-        }
-        else
+        
+            @foreach (var listAssignment in Model)
+            {
+                @if ((listAssignment.Interpreter.Email.ToUpper() == @User.Identity.Name.ToUpper()) && listAssignment.Claimed == false)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                        </td>
+                        <td>
+                            <span>Not yet!</span>
+                            <br />
+                            @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                            @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                            }
+                            |
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+        @*}*@
+        
+    </table>
+    }
+
+@if (User.IsInRole("Interpreter"))
+{
+    <h3>Your Confirmed Assignments</h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                Deaf User Name
+            </th>
+            <th>
+                Interpreter Name
+            </th>
+            <th>Claimed?</th>
+
+            <th>Options</th>
+        </tr>
+        @foreach (var listAssignment in Model)
         {
-          
+            @if ((listAssignment.Interpreter.Email.ToUpper() == @User.Identity.Name.ToUpper()) && listAssignment.Claimed == true)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                    </td>
+                    <td>
+                        <span>Yes</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                        @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                        }
+                        |
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                        }
+
+                    </td>
+                </tr>
+            }
         }
+    </table>
+
+}
+
+@if (User.IsInRole("Deaf User"))
+{
+    <h3>Your Requested Assigments</h3>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                Deaf User Name
+            </th>
+            <th>
+                Interpreter Name
+            </th>
+            <th>Claimed?</th>
+
+            <th>Options</th>
+        </tr>
+
+        @foreach (var listAssignment in Model)
+        {
+            @if ((listAssignment.Client.Email.ToUpper() == @User.Identity.Name.ToUpper()) && listAssignment.Claimed == false)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                    </td>
+                    <td>
+                        <span>Not yet!</span>
+                        <br />
+                        @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                        @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                        }
+                        |
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                        }
+
+                    </td>
+                </tr>
+            }
         }
-</table>
+
+    </table>
+}
+ 
+
+
+    @if (User.IsInRole("Deaf User"))
+    {
+        <h3>Your Confirmed Assignments</h3>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    Deaf User Name
+                </th>
+                <th>
+                    Interpreter Name
+                </th>
+                <th>Claimed?</th>
+
+                <th>Options</th>
+            </tr>
+            @foreach (var listAssignment in Model)
+            {
+                @if ((listAssignment.Client.Email.ToUpper() == @User.Identity.Name.ToUpper()) && listAssignment.Claimed == true)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                        </td>
+                        <td>
+                            <span>Yes</span>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                            @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                            }
+                            |
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    }
 
 @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
 {

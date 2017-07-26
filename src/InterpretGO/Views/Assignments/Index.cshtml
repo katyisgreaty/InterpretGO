@@ -54,16 +54,16 @@
                 @if (listAssignment.Claimed == false)
                 {
                     <span>Not yet!</span>
-                    @if (User.Identity.Name == listAssignment.Interpreter.Email)
+                    @if ((User.Identity.Name == listAssignment.Interpreter.Email) || listAssignment.Interpreter.Email == "nointerpreterpreference@gmail.com")
                     {
-                    <br />
-                    @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                        <br />
+                        @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
                         }
                     }
                     else
                     {
-                    <span>Yes</span>
-                }                
+                        <span>Yes</span>
+                    }                
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
