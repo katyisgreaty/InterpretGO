@@ -5,9 +5,36 @@ body {
 }
 
 .all {
-   background-image: url('../img/light-blue-backgroud.jpg');
-   background-size: 300%;
+    background-image: url('../img/blue-background.jpeg');
+    background-size: 300%;
+}
 
+.parallax {
+    background-image: url('../img/light-purple-background.jpg');
+    height: 470px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    color: white;
+    text-align: center;
+}
+
+.top-parallax-medium {
+    height: 400px;
+}
+
+.top-parallax-small {
+    height: 300px;
+}
+
+.bottom-parallax-medium {
+    height: 540px;
+}
+
+.bottom-parallax-large {
+    height: 800px;
 }
 
 .render-body {
@@ -35,6 +62,18 @@ body {
     margin-left: 26%;
     margin-top: 20%;
     margin-bottom: 10px;
+}
+
+/*Account Register Page*/
+
+.register-label {
+    min-width: 200px;
+    text-align: left;
+    margin-left: 25%;
+}
+
+.register-form-box {
+    /*width: 70%;*/
 }
 
 /*Assignments List Page*/
@@ -86,7 +125,7 @@ body {
     height: 95vh;
 }
 
-.parallax {
+.parallax-home {
     background-image: url('../img/blue-background.jpeg');
     height: 400px;
     background-attachment: fixed;
@@ -231,12 +270,10 @@ nav a {
 .custom-footer {
     top: unset;
     bottom: 0px;
-    position: initial;
-    z-index: 0;
+    position: fixed;
     color: white;
     text-align: center;
     font-size: 12px;
-
 }
 
 .custom-footer p {
