@@ -59,7 +59,7 @@ namespace InterpretGO.Controllers
         {
             db.Assignments.Add(assignment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
 
@@ -96,7 +96,7 @@ namespace InterpretGO.Controllers
             }
             db.Entry(assignment).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public IActionResult Claim(int id)
@@ -119,7 +119,7 @@ namespace InterpretGO.Controllers
         {
             db.Entry(assignment).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public IActionResult Delete(int id)

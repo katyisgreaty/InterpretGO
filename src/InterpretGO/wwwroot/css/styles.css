@@ -35,6 +35,10 @@ body {
     margin-bottom: 20px;
 }
 
+.list-subhead {
+    margin-top: 60px;
+}
+
 #list-not-logged-in-subhead {
     margin-top: 40px;
     text-align: center;
@@ -42,7 +46,7 @@ body {
 
 .list-table {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /*Client Index Page*/

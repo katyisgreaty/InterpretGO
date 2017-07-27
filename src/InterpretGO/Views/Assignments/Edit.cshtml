@@ -23,6 +23,9 @@
     @Html.LabelFor(model => model.Date)
     @Html.EditorFor(model => model.Date)
 
+    @Html.LabelFor(model => model.Time)
+    @Html.EditorFor(model => model.Time)
+
     @Html.LabelFor(model => model.Duration)
     @Html.EditorFor(model => model.Duration)
 
@@ -57,13 +60,18 @@
     }
     else
     {
-        @Html.HiddenFor(model=>model.ClientId)
+        @Html.HiddenFor(model => model.ClientId)
 
     }
 
 
 
-    <input type="submit" value="Save" />
+    <input class="btn" type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Back to list of assignments", "Index")</p>
 
+@if (User.IsInRole("Admin"))
+{
+    <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
+}
+
+<p>@Html.ActionLink("Back to list of your events", "List")</p>
