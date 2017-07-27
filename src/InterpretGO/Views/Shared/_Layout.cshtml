@@ -52,7 +52,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item nav-item-adjustment navbar-right">
-                        <span>@User.Identity.Name</span>
+                        <span class="nav-user-name">@User.Identity.Name</span>
                     </li>
                     <li class="nav-item nav-item-adjustment">
                         <span class="logoff-links">@Html.ActionLink("Log Out", "LogOff", "Account")</span>

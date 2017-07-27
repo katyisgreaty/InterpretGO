@@ -2,10 +2,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="welcome">Welcome!</h1>
-<h3 class="welcome-text">Now that you have access to our site, please sign up as either a Deaf/Hard of Hearing User or as an Interpreter.
-</h3>
-<div class="row">
+<div class="parallax top-parallax-xsmall"></div>
+
+<div class="chunk chunk-small">
+    <h1 class="welcome">Welcome!</h1>
+    <h3 class="welcome-text">
+        Now that you have access to our site, please sign up as either a Deaf/Hard of Hearing User or as an Interpreter.
+    </h3>
+</div>
+
+<div class="parallax parallax-xsmall"></div>
+
+<div class="row chunk chunk-small">
     <div class="col-md-6">
         <img src="~/img/user.svg" alt="Image icon of an outline of a person's head and torso with checkmark" class="welcome-icons">
         <p class="welcome-text">
@@ -21,3 +29,5 @@
         <span class="welcome-text">@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")</span>
     </div>
 </div>
+
+<div class="parallax parallax-small"></div>

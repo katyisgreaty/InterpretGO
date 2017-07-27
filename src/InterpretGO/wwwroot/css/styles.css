@@ -21,6 +21,14 @@ body {
     text-align: center;
 }
 
+.parallax-small {
+    height: 250px;
+}
+
+.parallax-xsmall {
+    height: 140px;
+}
+
 .top-parallax-medium {
     height: 400px;
 }
@@ -29,38 +37,64 @@ body {
     height: 300px;
 }
 
+.top-parallax-xsmall {
+    height: 210px;
+}
+
 .bottom-parallax-medium {
     height: 540px;
 }
 
 .bottom-parallax-large {
-    height: 800px;
+    height: 700px;
 }
 
-.render-body {
-    /*margin-top: 100px;*/
+.chunk {
+    background-color: white;
+    min-height: 400px;
+    padding: 70px;
+    padding-top: 80px;
+    text-align: center;
 }
+
+.chunk-small {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    min-height: 280px;
+}
+
+.chunk-header {
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+
+.chunk-body {
+    width: 90%;
+    text-align: center;
+    padding-left: 7%;
+}
+
+/*.render-body {
+    /*margin-top: 100px;
+}*/
 
 /*Account RedirectToModelCreation Page*/
 
 .welcome {
     text-align: center;
     font-size: 60px;
-    margin-top: 30px;
+    margin-top: 38px;
 }
  .welcome-text {
      text-align: center;
  }
 
- .welcome-text a {
-     margin-left: 30%;
- }
 
 .welcome-icons {
     width: 250px;
     height: 250px;
-    margin-left: 26%;
-    margin-top: 20%;
+    /*margin-left: 26%;*/
+    margin-top: 10%;
     margin-bottom: 10px;
 }
 
@@ -72,9 +106,9 @@ body {
     margin-left: 25%;
 }
 
-.register-form-box {
-    /*width: 70%;*/
-}
+/*.register-form-box {
+    width: 70%;
+}*/
 
 /*Assignments List Page*/
 
@@ -164,25 +198,6 @@ body {
     font-size: 50px;
 }
 
-.chunk {
-    background-color: white;
-    min-height: 400px;
-    padding: 70px;
-    padding-top: 80px;
-    text-align: center;
-}
-
-.chunk-header {
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-
-.chunk-body {
-    width: 90%;
-    text-align: center;
-    padding-left: 7%;
-}
-
 .first-chunk-img {
     height: 430px;
 }
@@ -194,8 +209,6 @@ body {
 .third-chunk {
     padding-top: 20px;
 }
-
-
 
 /*Interpreter Index Page*/
 
@@ -265,6 +278,10 @@ nav a {
 
 .title-icon {
     height: 30px;
+}
+
+.nav-user-name {
+    color: #52eaff;
 }
 
 .custom-footer {

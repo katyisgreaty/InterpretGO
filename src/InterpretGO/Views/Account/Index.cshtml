@@ -5,17 +5,22 @@
 
 @using System.Security.Claims
 
-<h2 class="auth-title">Authentication with Identity</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hello @User.Identity.Name!</p>
-}
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
-}
+<div class="parallax top-parallax-small"></div>
 
+<div class="chunk">
+    <h2 class="auth-title">Welcome to InterpretGO! Please Log in or Register</h2>
+    <hr />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Hello @User.Identity.Name!</p>
+    }
+    else
+    {
+        <p>@Html.ActionLink("Register", "Register")</p>
+        <p>@Html.ActionLink("Log in", "Login")</p>
+        <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    }
+</div>
+
+<div class="parallax bottom-parallax-large"></div>
 
