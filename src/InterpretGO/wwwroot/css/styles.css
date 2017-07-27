@@ -87,7 +87,6 @@ body {
 }
 
 .parallax {
-    background-image: url('../img/light-purple-background.jpg');
     background-image: url('../img/blue-background.jpeg');
     height: 400px;
     background-attachment: fixed;
@@ -97,7 +96,6 @@ body {
     padding: 50px;
     color: white;
     text-align: center;
-
 }
 
 .first-parallax {
@@ -105,22 +103,60 @@ body {
     height: 650px;
 }
 
+.second-parallax {
+    padding-top: 55px;
+    height: 500px;
+}
+
+.second-parallax-img {
+    height: 400px;
+    padding-right: 20px;
+}
+
+.second-parallax-right-col {
+    padding-top: 40px;
+}
+
+.last-parallax {
+    height: 150px;
+}
+
 .first-header {
     font-size: 50px;
-
 }
 
 .chunk {
     background-color: white;
     min-height: 400px;
-    padding: 50px;
+    padding: 70px;
     padding-top: 80px;
     text-align: center;
 }
 
 .chunk-header {
-    margin-bottom: 15px;
+    margin-bottom: 35px;
+    margin-top: 30px;
 }
+
+.chunk-body {
+    width: 90%;
+    text-align: center;
+    padding-left: 7%;
+}
+
+.first-chunk-img {
+    height: 430px;
+}
+
+.second-chunk-img {
+    width: 80%;
+}
+
+.third-chunk {
+    padding-top: 20px;
+}
+
+
 
 /*Interpreter Index Page*/
 
@@ -190,5 +226,21 @@ nav a {
 
 .title-icon {
     height: 30px;
+}
+
+.custom-footer {
+    top: unset;
+    bottom: 0px;
+    position: initial;
+    z-index: 0;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+
+}
+
+.custom-footer p {
+    margin-bottom: 0;
+
 }
 
