@@ -4,6 +4,14 @@ body {
     font-size: 20px;
 }
 
+.all {
+    background-image: url('../img/desk1.jpeg');
+    background-image: url('../img/desk2.jpeg');
+    background-position: top;
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+}
+
 /*Account RedirectToModelCreation Page*/
 
 .welcome {
@@ -99,6 +107,10 @@ body {
 }
 
 /*Layout*/
+
+.custom-navbar {
+    background-color: rgba(0,0,0,.6) !important;
+}
 
 .nav-space a {
     color: orange !important;
