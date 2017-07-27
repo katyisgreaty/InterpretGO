@@ -15,18 +15,20 @@
 
 <div class="row chunk chunk-small">
     <div class="col-md-6">
+        <span class="welcome-text">@Html.ActionLink("Sign up as a Deaf User", "Create", "Clients")</span> <br />
+
         <img src="~/img/user.svg" alt="Image icon of an outline of a person's head and torso with checkmark" class="welcome-icons">
         <p class="welcome-text">
             As a Deaf or Hard of Hearing User, you will be able to create requests for interpreters for specific events, see all requests, and check which events have been confirmed by the interpreters.
         </p>
-        <span class="welcome-text">@Html.ActionLink("Sign up as a Deaf User", "Create", "Clients")</span>
 </div>
     <div class="col-md-6">
+        <span class="welcome-text">@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")</span><br />
+
         <img src="~/img/terp-symbol.png" alt="interpreter symbol" class="welcome-icons"/>
         <p class="welcome-text">
             As an Interpreter, you will be able to see a list of jobs you have been requested for, as well as jobs that are open for any interpreter to claim. You can accept any of these types of events and then see the list of your confirmed assignments.
         </p>
-        <span class="welcome-text">@Html.ActionLink("Sign up as an Interpreter", "Create", "Interpreters")</span>
     </div>
 </div>
 
