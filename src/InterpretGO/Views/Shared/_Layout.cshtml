@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
     <link href="~/css/jquery.timepicker.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/img/favicon.png" />
     <title>InterpretGO</title>
 </head>
 <body class="all">
@@ -23,8 +24,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h3 class="navbar-brand">@Html.ActionLink("InterpretGO", "Index", "Home")</h3>
-
+        <h3 class="navbar-brand"><a class="logo" href="/">InterpretGO<img class="title-icon" src="~/img/favicon.png" alt="interpret logo" /></a></h3>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav mr-auto">
@@ -70,7 +70,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container render-body">
         @RenderBody()
     </div>
 </body>

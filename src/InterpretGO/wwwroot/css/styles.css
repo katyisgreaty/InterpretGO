@@ -5,11 +5,13 @@ body {
 }
 
 .all {
-    background-image: url('../img/desk1.jpeg');
-    background-image: url('../img/desk2.jpeg');
-    background-position: top;
-    /*background-size: cover;*/
-    background-repeat: no-repeat;
+   background-image: url('../img/light-blue-backgroud.jpg');
+   background-size: 300%;
+
+}
+
+.render-body {
+    margin-top: 20px;
 }
 
 /*Account RedirectToModelCreation Page*/
@@ -77,7 +79,7 @@ body {
 /*Home Index page*/
 
 .home-page {
-    background-image: url('../img/person5.jpeg');
+    background-image: url('../img/light-purple-background.jpg');
     background-size: cover;
     background-position: center;
     height: 95vh;
@@ -129,5 +131,23 @@ body {
 
 .nav-custom-spacing {
     margin-right: 20px;
+}
+
+.logo {
+    color: white !important;
+    font-size: 30px;
+    padding-left: 15px;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+nav a {
+    color: white !important;
+}
+
+.title-icon {
+    height: 30px;
 }
 
