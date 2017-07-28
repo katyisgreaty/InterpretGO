@@ -106,6 +106,10 @@ body {
     min-height: 100px;
 }
 
+.chunk-small-left {
+    padding-left: 1%;
+}
+
 .chunk-header {
     margin-bottom: 35px;
     margin-top: 30px;
@@ -183,6 +187,13 @@ body {
 .new-assignment-link a {
     color: #b13cce !important;
     font-size: 20px;
+}
+
+/*Assignment Details Page*/
+
+.assignment-detail-image{
+    width: 400px;
+    margin-top: 130px;
 }
 
 /*Assignments Edit Page*/

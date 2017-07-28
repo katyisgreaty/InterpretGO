@@ -10,42 +10,68 @@
     <h2 class="parallax-header">Assignment Details</h2>
 </div>
 
-<div class="chunk chunk-small">
-    <table class="table">
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Date)</th>
-            <th>@Html.DisplayNameFor(model => model.Time)</th>
-            <th>@Html.DisplayNameFor(model => model.Duration)</th>
-            <th>@Html.DisplayNameFor(model => model.Language)</th>
-            <th>@Html.DisplayNameFor(model => model.Location)</th>
-            <th><label>Interpreter Name</label></th>
-            <th><label>Deaf/HH User Name</label></th>
-            <th><label>Claimed?</label></th>
-        </tr>
-        <tr>
-            <td>@Html.DisplayFor(model => model.Title)</td>
-            <td>@Html.DisplayFor(model => model.Date)</td>
-            <td>@Html.DisplayFor(model => model.Time)</td>
-            <td>@Html.DisplayFor(model => model.Duration) hour(s)</td>
-            <td>@Html.DisplayFor(model => model.Language)</td>
-            <td>@Html.DisplayFor(model => model.Location)</td>
-            <td>@Html.DisplayFor(model => model.FindInterpreter(model.InterpreterId).Name)</td>
-            <td>@Html.DisplayFor(model => model.FindClient(model.ClientId).Name)</td>
-            <td>
-                @if(Model.Claimed == true)
-                {
-                    <span>Yes</span>
-                }
-                @if(Model.Claimed == false)
-                {
-                    <span>Not Yet!</span>
-                }
-            </td>
-        </tr>
-    </table>
-  
+<div class="chunk chunk-small chunk-small-left">
+    <div class="row">
+        <div class="col-md-5">
+            <img class="assignment-detail-image" src="~/img/clock.jpeg" />
+        </div>
+        <div class="col-md-7">
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <td>@Html.DisplayFor(model => model.Title)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Date)</th>
+                    <td>@Html.DisplayFor(model => model.Date)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Time)</th>
+                    <td>@Html.DisplayFor(model => model.Time)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Duration)</th>
+                    <td>@Html.DisplayFor(model => model.Duration) hour(s)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Language)</th>
+                    <td>@Html.DisplayFor(model => model.Language)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Location)</th>
+                    <td>@Html.DisplayFor(model => model.Location)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Type)</th>
+                    <td>@Html.DisplayFor(model => model.Type)</td>
+                </tr>
+                <tr>
+                    <th><label>Interpreter Name</label></th>
+                    <td>@Html.DisplayFor(model => model.FindInterpreter(model.InterpreterId).Name)</td>
+                </tr>
+                <tr>
+                    <th><label>Deaf/HH User Name</label></th>
+                    <td>@Html.DisplayFor(model => model.FindClient(model.ClientId).Name)</td>
+                </tr>
+                <tr>
+                    <th><label>Claimed?</label></th>
+                    <td>
+                        @if (Model.Claimed == true)
+                        {
+                            <span>Yes</span>
+                        }
+                        @if (Model.Claimed == false)
+                        {
+                            <span>Not Yet!</span>
+                        }
+                    </td>
+                </tr>               
+            </table>
+
+        </div>
+    </div>
+    
 
     <p>@Html.ActionLink("Back to list of your events", "List")</p>
 </div>
-<div class="parallax bottom-parallax-large"></div>
+<div class="parallax parallax-small"></div>
