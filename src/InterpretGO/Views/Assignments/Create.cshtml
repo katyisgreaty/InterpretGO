@@ -5,62 +5,68 @@
 
 @model InterpretGO.Models.Assignment
 
-<h2>Add new Assignment</h2>
+<div class="parallax top-parallax-medium">
+    <h2 class="parallax-header">Add new Assignment</h2>
+</div>
 
-@using (Html.BeginForm())
-{
-    <div class="row">
-        @Html.LabelFor(model => model.Title)
-        @Html.TextBoxFor(model => model.Title, new { @required = "true" })
-    </div>
-
-    <div class="row">
-        <label>Type of Assignment(i.e., Medical, Education, Community, etc)</label>
-        @Html.TextBoxFor(model => model.Type, new { @required = "true" })
-    </div>
-
-    <div class="row">
-        @Html.LabelFor(model => model.Date)
-        @Html.TextBoxFor(model => model.Date, new { @type = "date" })
-    </div>
-
-    <div class="row">
-        <label>Start Time (ex: "10:00AM", "4:00PM", etc.)</label>
-        @Html.TextBoxFor(model => model.Time, new { @type = "" })
-    </div>
-
-    <div class="row">
-        <label>Duration (Round up to nearest hour)</label>
-        @Html.TextBoxFor(model => model.Duration, new { @type = "number" })
-    </div>
-
-    <div class="row">
-        @Html.LabelFor(model => model.Location)
-        @Html.TextBoxFor(model => model.Location)
-    </div>
-
-    <div class="row">
-        @Html.LabelFor(model => model.Language)
-        @Html.TextBoxFor(model => model.Language)
-    </div>
-
-    <div class="row">
-        <label>Interpreter Name</label>
-
-        <div class="form-group">
-            @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+<div class="chunk chunk-small">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            @Html.LabelFor(model => model.Title)
+            @Html.TextBoxFor(model => model.Title, new { @required = "true" })
         </div>
-    </div>
 
-    <div class="row">
-        <label>Client Name</label>
-        <div class="form-group">
-            @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
+        <div class="row">
+            <label>Type of Assignment(i.e., Medical, Education, Community, etc)</label>
+            @Html.TextBoxFor(model => model.Type, new { @required = "true" })
         </div>
-    </div> 
 
-    <div class="row">
-        <input type="submit" value="Add new assignment" />
-    </div>
-}
-<p>@Html.ActionLink("Back to list of Assignments", "Index")</p>
+        <div class="row">
+            @Html.LabelFor(model => model.Date)
+            @Html.TextBoxFor(model => model.Date, new { @type = "date" })
+        </div>
+
+        <div class="row">
+            <label>Start Time (ex: "10:00AM", "4:00PM", etc.)</label>
+            @Html.TextBoxFor(model => model.Time, new { @type = "" })
+        </div>
+
+        <div class="row">
+            <label>Duration (Round up to nearest hour)</label>
+            @Html.TextBoxFor(model => model.Duration, new { @type = "number" })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Location)
+            @Html.TextBoxFor(model => model.Location)
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Language)
+            @Html.TextBoxFor(model => model.Language)
+        </div>
+
+        <div class="row">
+            <label>Interpreter Name</label>
+
+            <div class="form-group">
+                @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <label>Client Name</label>
+            <div class="form-group">
+                @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <input class="btn btn-custom" type="submit" value="Add new assignment" />
+        </div>
+    }
+    <p>@Html.ActionLink("Back to list of Assignments", "Index")</p>
+
+</div>
+<div class="parallax bottom-parallax-medium"></div>

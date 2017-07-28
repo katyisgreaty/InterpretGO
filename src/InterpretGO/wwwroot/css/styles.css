@@ -10,6 +10,13 @@ body {
     background-size: 300%;
 }
 
+.btn-custom {
+    background-color: #232fde;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+
+}
+
 .parallax {
     background-image: url('../img/blue-background.jpeg');
     height: 470px;
