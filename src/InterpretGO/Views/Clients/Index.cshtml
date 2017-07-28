@@ -7,11 +7,14 @@
 
 
 
+<div class="parallax-purple top-parallax-medium">
+    <h2 class="parallax-header">Deaf and Hard of Hearing Users</h2>
+</div>
 
-
-@if (User.IsInRole("Admin"))
-{
-    <h2 class="client-header">Deaf/HH Users</h2>
+<div class="chunk chunk-small">
+    @if (User.IsInRole("Admin"))
+    {
+        <h2 class="client-header">Deaf/HH Users</h2>
         <table class="table">
             <tr>
                 <th>Name</th>
@@ -36,40 +39,44 @@
                 </tr>
             }
         </table>
-}
-else
-{
-    @if(User.IsInRole("Deaf User"))
-    {
-        <h2 class="client-header">Your User Profile</h2>
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Language Preference</th>
-                <th>Phone Number</th>
-                <th>Email Address</th>
-                <th>Options</th>
-            </tr>
-            @foreach (var listClient in Model)
-            {
-                @if (listClient.Email.ToUpper() == @User.Identity.Name.ToUpper())
-                {
-                    <tr>
-                        <td class="interpreter-index-name">
-                            @Html.DisplayFor(modelClient => listClient.Name)
-                        </td>
-                        <td>@Html.DisplayFor(modelClient => listClient.Language)</td>
-                        <td>@Html.DisplayFor(modelClient => listClient.Phone)</td>
-                        <td>@Html.DisplayFor(modelClient => listClient.Email)</td>
-                        <td class="interpreter-index-list">
-                            @Html.ActionLink("Details", "Details", new { id = listClient.ClientId }) |
-                            @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId })
-                        </td>
-                    </tr>
-                }
-            }
-        </table>
+        <p>@Html.ActionLink("Add new Client", "Create")</p>
     }
-}
+    else
+    {
+        @if (User.IsInRole("Deaf User"))
+        {
+            <h2 class="client-header">Your User Profile</h2>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Language Preference</th>
+                    <th>Phone Number</th>
+                    <th>Email Address</th>
+                    <th>Options</th>
+                </tr>
+                @foreach (var listClient in Model)
+                {
+                    @if (listClient.Email.ToUpper() == @User.Identity.Name.ToUpper())
+                    {
+                        <tr>
+                            <td class="interpreter-index-name">
+                                @Html.DisplayFor(modelClient => listClient.Name)
+                            </td>
+                            <td>@Html.DisplayFor(modelClient => listClient.Language)</td>
+                            <td>@Html.DisplayFor(modelClient => listClient.Phone)</td>
+                            <td>@Html.DisplayFor(modelClient => listClient.Email)</td>
+                            <td class="interpreter-index-list">
+                                @Html.ActionLink("Details", "Details", new { id = listClient.ClientId }) |
+                                @Html.ActionLink("Edit", "Edit", new { id = listClient.ClientId })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        }
+    }
 
-<p>@Html.ActionLink("Add new Client", "Create")</p>
+  
+
+</div>
+<div class="parallax-purple bottom-parallax-large"></div>
