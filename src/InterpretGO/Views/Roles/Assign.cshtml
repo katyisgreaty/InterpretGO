@@ -2,57 +2,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container user-form">
+<div class="parallax-red top-parallax-medium">
+    <h2 class="parallax-header">Manage User Roles</h2>
+</div>
 
-    <h1>Assign User Roles</h1>
-    <hr />
-
+<div class="chunk chunk-small">
     <p class="assign-role">Add a role to user</p>
-
-    <div class="assign-role-div">
+    <div class="assign-role-div role-div">
         @using (Html.BeginForm("AddRole", "Roles"))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
 
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <label>Username: </label>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     @Html.DropDownList("UserName", "Select User")
                 </div>
             </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Role name: </label>
-                    </div>
-                    <div class="col-sm-9">
-                        @Html.DropDownList("RoleName", "Select Roles")
-                    </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Role name: </label>
                 </div>
-
-                <input type="submit" value="Save" class="btn" />
+                <div class="col-sm-6">
+                    @Html.DropDownList("RoleName", "Select Roles")
+                </div>
+            </div>
+                <input class="btn btn-custom save-button" type="submit" value="Save"/>
         }
     </div>
+</div>
 
-
+<div class="parallax-red parallax-small">
     <p class="assign-role">Get roles for a user</p>
-    <div class="assign-role-div">
+    <div class="assign-role-div role-div">
         @using (Html.BeginForm("GetRoles", "Roles"))
         {
             @Html.AntiForgeryToken()
 
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <label>Username : </label>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     @Html.DropDownList("UserName", "Select User")
                 </div>
             </div>
 
-            <input type="submit" value="Get roles" class="btn" />
+            <input type="submit" value="Get roles" class="btn btn-custom save-button" />
         }
 
         @if (ViewBag.RolesForThisUser != null)
@@ -68,34 +67,38 @@
             </div>
         }
     </div>
+</div>
 
+<div class="chunk chunk-small">
     <p class="assign-role">Delete a user from a role</p>
 
-    <div class="assign-role-div">
+    <div class="assign-role-div role-div">
         @using (Html.BeginForm("DeleteRole", "Roles"))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
 
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <label>Username : </label>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     @Html.DropDownList("UserName", "Select User")
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <label>Role Name: </label>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     @Html.DropDownList("RoleName", "Select Roles")
                 </div>
             </div>
 
-            <input type="submit" value="Delete user from role" class="btn" />
+            <input type="submit" value="Delete user from role" class="btn btn-custom save-button" />
         }
     </div>
 </div>
+
+<div class="parallax-red bottom-parallax-medium"></div>

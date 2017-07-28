@@ -4,18 +4,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
  
 }
+<div class="parallax-red top-parallax-medium">
+    <h2 class="parallax-header">Create Role</h2>
+</div>
 
-<h2>Create Role</h2>
-@Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="chunk chunk-small">
+    <div class="top-space">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
-    <div>
-        Role name
+            <div>
+                Role name
+            </div>
+            @Html.EditorFor(model => model.Name)
+            <input class="btn btn-custom save-button" type="submit" value="Save" />
+        }
     </div>
-    @Html.EditorFor(model => model.Name)
-    <input type="submit" value="Save" />
-}
+</div>
+
+<div class="parallax-red bottom-parallax-large"></div>
+<div class="parallax-red bottom-parallax-medium"></div>

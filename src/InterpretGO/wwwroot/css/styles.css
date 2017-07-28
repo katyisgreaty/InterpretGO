@@ -272,7 +272,6 @@ body {
 }
 
 .parallax-red {
-    background-image: url('../img/blue-background.jpeg');
     background-image: url('../img/red-pink-background.jpg');
     height: 400px;
     background-attachment: fixed;
@@ -422,3 +421,13 @@ nav a {
 
 }
 
+/*Roles Assign Page*/
+
+.role-div {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.top-space {
+    margin-top: 50px;
+}
