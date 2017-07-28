@@ -5,55 +5,63 @@
 
 @model InterpretGO.Models.Interpreter
 
-<h2>Add new Interpreter</h2>
+<div class="parallax-green top-parallax-medium">
+    <h2 class="parallax-header">Add New Interpreter</h2>
+</div>
 
-@using (Html.BeginForm())
-{
-    <div class="row">
-        <span class="form-label">
-            @Html.LabelFor(model => model.Name)
-        </span>
-        @Html.TextBoxFor(model => model.Name, new { @required = "true" })
-    </div>
+<div class="chunk chunk-small">
+    @using (Html.BeginForm())
+    {
+        <div class="row center-row">
+            <span class="form-label">
+                @Html.LabelFor(model => model.Name)
+            </span>
+            @Html.TextBoxFor(model => model.Name, new { @required = "true" })
+        </div>
 
-    <div class="row">
-        <span class="form-label">
-            @Html.LabelFor(model => model.Specialty)
-        </span>
-        @Html.TextBoxFor(model => model.Specialty, new { @required = "true" })
-    </div>
+        <div class="row center-row">
+            <span class="form-label">
+                @Html.LabelFor(model => model.Specialty)
+            </span>
+            @Html.TextBoxFor(model => model.Specialty, new { @required = "true" })
+        </div>
 
-    <div class="row">
-        <span class="form-label">
-            @Html.LabelFor(model => model.Certification)
-        </span>
-        @Html.TextBoxFor(model => model.Certification)
-    </div>
+        <div class="row center-row">
+            <span class="form-label">
+                @Html.LabelFor(model => model.Certification)
+            </span>
+            @Html.TextBoxFor(model => model.Certification)
+        </div>
 
-    <div class="row">
-        <span class="form-label">
-            @Html.LabelFor(model => model.Rate)
-        </span>
-        <span>$</span>@Html.TextBoxFor(model => model.Rate, new { @type = "number", @required = "true" }) <span>/hour</span>
-    </div>
+        <div class="row center-row">
+            <span class="form-label">
+                @Html.LabelFor(model => model.Rate)
+            </span>
+            <span>$</span>@Html.TextBoxFor(model => model.Rate, new { @type = "number", @required = "true" }) <span>/hour</span>
+        </div>
 
-    <div class="row">
-        <span class="form-label">
-            <label>Email Address<br />
-            (Use the same as your user registration)</label>
-        </span>
-        @Html.TextBoxFor(model => model.Email, new { @required = "true" })
-    </div>
+        <div class="row center-row">
+            <span class="form-label">
+                <label>
+                    Email Address<br />
+                    (Use the same as your user registration)
+                </label>
+            </span>
+            @Html.TextBoxFor(model => model.Email, new { @required = "true" })
+        </div>
 
-    <div class="row">
-        <span class="form-label">
-            @Html.LabelFor(model => model.Phone)
-        </span>
-        @Html.TextBoxFor(model => model.Phone)
-    </div>
+        <div class="row center-row">
+            <span class="form-label">
+                @Html.LabelFor(model => model.Phone)
+            </span>
+            @Html.TextBoxFor(model => model.Phone)
+        </div>
 
-    <div class="row">
-        <input type="submit" class="btn add-button" value="Submit" />
-    </div>
-}
-<p>@Html.ActionLink("Back to list of interpreters", "Index")</p>
+        <div class="row">
+            <input type="submit" class="btn btn-custom save-button center-button" value="Submit" />
+        </div>
+    }
+</div>
+<div class="parallax-green bottom-parallax-large parallax-link">
+    <p>@Html.ActionLink("Back to list of interpreters", "Index")</p>
+</div>

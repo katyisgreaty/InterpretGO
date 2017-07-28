@@ -345,6 +345,15 @@ z-index: 10;
     margin: 15px;
 }
 
+.center-row {
+    margin-left: 33%;
+    text-align: left;
+}
+
+.center-button {
+    margin-left: 45%;
+}
+
 /*Interpreter details Page*/
 
 .terp-detail-head {
