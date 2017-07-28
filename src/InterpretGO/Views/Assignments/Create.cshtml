@@ -12,42 +12,42 @@
 <div class="chunk chunk-small">
     @using (Html.BeginForm())
     {
-        <div class="row">
+        <div class="row center-row">
             @Html.LabelFor(model => model.Title)
             @Html.TextBoxFor(model => model.Title, new { @required = "true" })
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <label>Type of Assignment(i.e., Medical, Education, Community, etc)</label>
             @Html.TextBoxFor(model => model.Type, new { @required = "true" })
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             @Html.LabelFor(model => model.Date)
             @Html.TextBoxFor(model => model.Date, new { @type = "date" })
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <label>Start Time (ex: "10:00AM", "4:00PM", etc.)</label>
             @Html.TextBoxFor(model => model.Time, new { @type = "" })
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <label>Duration (Round up to nearest hour)</label>
             @Html.TextBoxFor(model => model.Duration, new { @type = "number" })
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             @Html.LabelFor(model => model.Location)
             @Html.TextBoxFor(model => model.Location)
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             @Html.LabelFor(model => model.Language)
             @Html.TextBoxFor(model => model.Language)
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <label>Interpreter Name</label>
 
             <div class="form-group">
@@ -55,19 +55,19 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <label>Client Name</label>
             <div class="form-group">
                 @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
             </div>
         </div>
 
-        <div class="row">
+        <div class="row center-row">
             <input class="btn btn-custom" type="submit" value="Add new assignment" />
         </div>
     }
 
 </div>
 <div class="parallax bottom-parallax-medium parallax-link">
-    <p>@Html.ActionLink("Back to list of Assignments", "Index")</p>
+    <p>@Html.ActionLink("Back to list of Assignments", "List")</p>
 </div>

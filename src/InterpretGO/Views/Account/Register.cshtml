@@ -14,20 +14,20 @@
     <hr />
     @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
-        <div class="row">
+        <div class="row bump-right-row">
             <span class="register-label">@Html.LabelFor(m => m.Email)</span>
             <span class="register-form-box">@Html.TextBoxFor(m => m.Email)</span>
 </div>
-        <div class="row">
+        <div class="row bump-right-row">
             <span class="register-label">@Html.LabelFor(m => m.Password)</span>
             <span class="register-form-box">@Html.PasswordFor(m => m.Password)</span>
 </div>
-        <div class="row">
+        <div class="row bump-right-row">
             <span class="register-label">@Html.LabelFor(m => m.ConfirmPassword)</span>
             <span class="register-form-box">@Html.PasswordFor(m => m.ConfirmPassword)</span>
 </div>
 
-    <input class="btn btn-custom" type="submit" value="Register" />
+    <input class="btn btn-custom save-button" type="submit" value="Register" />
     }
 </div>
 

@@ -350,6 +350,10 @@ z-index: 10;
     text-align: left;
 }
 
+.bump-right-row {
+    margin-left: 22%;
+}
+
 .center-button {
     margin-left: 45%;
 }

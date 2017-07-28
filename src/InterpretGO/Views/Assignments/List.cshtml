@@ -83,12 +83,12 @@
                             @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
                         </td>
                         <td>
-                            @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                            @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) 
                             @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
                             {
                                 @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
                             }
-                            |
+                            
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
@@ -101,7 +101,7 @@
         </table>
         @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
         {
-            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+            <p class="new-assignment-link">@Html.ActionLink("Add new Event", "Create")</p>
         }
     </div>
     <div class="parallax parallax-xxsmall"></div>
@@ -190,7 +190,7 @@
         </table>
         @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
         {
-            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+            <p class="new-assignment-link">@Html.ActionLink("Add new Event", "Create")</p>
         }
     </div>
     <div class="parallax parallax-xxsmall"></div>
@@ -275,7 +275,7 @@
         </table>
         @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
         {
-            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+            <p class="new-assignment-link">@Html.ActionLink("Add new Event", "Create")</p>
         }
     </div>
     <div class="parallax bottom-parallax-medium"></div>
@@ -366,7 +366,7 @@
         </table>
         @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
         {
-            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+            <p class="new-assignment-link">@Html.ActionLink("Add new Event", "Create")</p>
         }
     </div>
     <div class="parallax parallax-xxsmall"></div>
@@ -454,7 +454,7 @@
         </table>
         @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
         {
-            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+            <p class="new-assignment-link">@Html.ActionLink("Add new Event", "Create")</p>
         }
         </div>
         <div class="parallax bottom-parallax-medium"></div>
