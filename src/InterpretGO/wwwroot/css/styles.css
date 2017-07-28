@@ -102,6 +102,9 @@ body {
     padding: 70px;
     padding-top: 80px;
     text-align: center;
+    box-shadow: 10px 10px 3px rgba(2,5,8,0.5);
+    position: relative;
+z-index: 10;
 }
 
 .chunk-small {

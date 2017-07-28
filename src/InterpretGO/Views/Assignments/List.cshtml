@@ -16,6 +16,95 @@
         <h4 id="list-not-logged-in-subhead">Please log in to view your events!</h4>
     </div>
     <div class="parallax bottom-parallax-large"></div>
+    <div class="parallax bottom-parallax-medium"></div>
+}
+@if (User.IsInRole("Interpreter"))
+{
+    <div class="chunk chunk-small">
+        <h3 class="list-subhead chunk-header">Assignments in Need of an Interpreter</h3>
+
+        <table class="table list-table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Duration)
+                </th>
+                <th>
+                    Deaf User Name
+                </th>
+                <th>
+                    Interpreter Name
+                </th>
+                <th>Claimed?</th>
+
+                <th>Options</th>
+            </tr>
+
+            @foreach (var listAssignment in Model)
+            {
+                @if ((listAssignment.Interpreter.Name == "No Interpreter Preference") && listAssignment.Claimed == false)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Duration)<span> hour(s)</span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                        </td>
+                        <td>
+                            <span>Not yet!</span>
+                            <br />
+                            @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                            @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                            }
+                            |
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+        @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
+        {
+            <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
+        }
+    </div>
+    <div class="parallax parallax-xxsmall"></div>
 }
 
 @if (User.IsInRole("Interpreter"))
@@ -189,7 +278,7 @@
             <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
         }
     </div>
-    <div class="parallax parallax-xsmall"></div>
+    <div class="parallax bottom-parallax-medium"></div>
 
 }
 
@@ -368,7 +457,7 @@
             <p class="new-assignment-link">@Html.ActionLink("Add new Assignment", "Create")</p>
         }
         </div>
-        <div class="parallax parallax-xsmall"></div>
+        <div class="parallax bottom-parallax-medium"></div>
 
 }
 

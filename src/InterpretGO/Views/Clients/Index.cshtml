@@ -41,8 +41,7 @@
         </table>
         <p class="new-assignment-link">@Html.ActionLink("Add new Client", "Create")</p>
     }
-    else
-    {
+   
         @if (User.IsInRole("Deaf User"))
         {
             <h2 class="client-header">Your User Profile</h2>
@@ -74,9 +73,36 @@
                 }
             </table>
         }
+    @if (User.IsInRole("Interpreter"))
+    {
+        <h2 class="client-header">Deaf/HH Users</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Language Preference</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+                <th>Options</th>
+            </tr>
+            @foreach (var listClient in Model)
+            {
+                <tr>
+                    <td class="interpreter-index-name">
+                        @Html.DisplayFor(modelClient => listClient.Name)
+                    </td>
+                    <td>@Html.DisplayFor(modelClient => listClient.Language)</td>
+                    <td>@Html.DisplayFor(modelClient => listClient.Phone)</td>
+                    <td>@Html.DisplayFor(modelClient => listClient.Email)</td>
+                    <td class="interpreter-index-list">
+                        @Html.ActionLink("Details", "Details", new { id = listClient.ClientId }) 
+                    </td>
+                </tr>
+            }
+        </table>
+
     }
 
-  
+
 
 </div>
 <div class="parallax-purple bottom-parallax-large"></div>
