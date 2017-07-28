@@ -83,12 +83,13 @@
 
         }
     </table>
-
+</div>
+<div class="parallax bottom-parallax-medium parallax-link">
     @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
     {
         <span>@Html.ActionLink("List of My Assignments", "List")</span>
-        <span class="new-assignment-link push-right">@Html.ActionLink("Add new Assignment", "Create")</span>
+        <br />
+        <span>@Html.ActionLink("Add new Assignment", "Create")</span>
     }
 
 </div>
-<div class="parallax bottom-parallax-medium"></div>

@@ -12,8 +12,8 @@
     @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
     @using (Html.BeginForm())
     {
-        <input class="btn btn-custom" type="submit" value="Delete" />
+        <input class="btn btn-custom save-button" type="submit" value="Delete" />
     }
-    @Html.ActionLink("Back to List", "Index")
 </div>
-<div class="parallax-purple bottom-parallax-large"></div>
+<div class="parallax-purple bottom-parallax-large parallax-link">@Html.ActionLink("Back to List", "Index")
+</div>

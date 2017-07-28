@@ -7,7 +7,7 @@
 
 <div class="parallax top-parallax-medium"></div> 
 
-<div class="chunk">
+<div class="chunk chunk-small">
     <h2>Are you sure you want to delete this?</h2>
     <hr />
     @Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
@@ -15,9 +15,10 @@
     {
         <input class="btn btn-custom save-button" type="submit" value="Delete" />
     }
+</div>
+
+<div class="parallax bottom-parallax-large parallax-link">
     @Html.ActionLink("Back to Index List", "Index")
     <br />
     @Html.ActionLink("Back to Your List", "List")
-</div>
-
-<div class="parallax bottom-parallax-large"></div> 
+</div> 

@@ -106,13 +106,13 @@
             <input class="btn btn-custom save-button" type="submit" value="Save" />
             }
 
-            @if (User.IsInRole("Admin"))
-                {
-                <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
-            }
-
-            <p>@Html.ActionLink("Back to list of your events", "List")</p>
+           
 
         </div>
 
-<div class="parallax bottom-parallax-medium"></div>
+<div class="parallax bottom-parallax-medium parallax-link">@if (User.IsInRole("Admin"))
+{
+    <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
+}
+
+<p>@Html.ActionLink("Back to list of your events", "List")</p></div>
