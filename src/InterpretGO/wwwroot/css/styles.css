@@ -234,6 +234,16 @@ body {
     margin-top: 30px;
 }
 
+/*Client Detail Page*/
+
+.client-detail-image{
+    width: 410px;
+}
+
+.table-lower {
+    margin-top: 40px;
+}
+
 /*Home Index page*/
 
 .home-page {
