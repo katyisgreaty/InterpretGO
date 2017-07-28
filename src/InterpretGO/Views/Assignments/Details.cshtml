@@ -6,16 +6,46 @@
 @model InterpretGO.Models.Assignment
 
 
+<div class="parallax top-parallax-medium">
+    <h2 class="parallax-header">Assignment Details</h2>
+</div>
 
-<h2>Assignment Details</h2>
-<hr />
-@Html.DisplayNameFor(model => model. Title): @Html.DisplayFor(model => model.Title)
-@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)
-@Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(model => model.Date)
-@Html.DisplayNameFor(model => model.Duration): @Html.DisplayFor(model => model.Duration)
-@Html.DisplayNameFor(model => model.Language): @Html.DisplayFor(model => model.Language)
-@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)
-@Html.DisplayNameFor(model => model.Interpreter): @Html.DisplayFor(model => model.Interpreter)
-@Html.DisplayNameFor(model => model.Client): @Html.DisplayFor(model => model.Client)
+<div class="chunk chunk-small">
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Time)</th>
+            <th>@Html.DisplayNameFor(model => model.Duration)</th>
+            <th>@Html.DisplayNameFor(model => model.Language)</th>
+            <th>@Html.DisplayNameFor(model => model.Location)</th>
+            <th><label>Interpreter Name</label></th>
+            <th><label>Deaf/HH User Name</label></th>
+            <th><label>Claimed?</label></th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.Title)</td>
+            <td>@Html.DisplayFor(model => model.Date)</td>
+            <td>@Html.DisplayFor(model => model.Time)</td>
+            <td>@Html.DisplayFor(model => model.Duration) hour(s)</td>
+            <td>@Html.DisplayFor(model => model.Language)</td>
+            <td>@Html.DisplayFor(model => model.Location)</td>
+            <td>@Html.DisplayFor(model => model.FindInterpreter(model.InterpreterId).Name)</td>
+            <td>@Html.DisplayFor(model => model.FindClient(model.ClientId).Name)</td>
+            <td>
+                @if(Model.Claimed == true)
+                {
+                    <span>Yes</span>
+                }
+                @if(Model.Claimed == false)
+                {
+                    <span>Not Yet!</span>
+                }
+            </td>
+        </tr>
+    </table>
+  
 
-<p>@Html.ActionLink("Back to list of iclients", "Index")</p>
+    <p>@Html.ActionLink("Back to list of your events", "List")</p>
+</div>
+<div class="parallax bottom-parallax-large"></div>

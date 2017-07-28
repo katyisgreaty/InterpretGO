@@ -30,6 +30,12 @@ namespace InterpretGO.Models
             return thisClient;
         }
 
-       
+        public Interpreter FindInterpreter(int InterpreterId)
+        {
+            Interpreter thisInterpreter = new InterpretGODbContext().Interpreters.FirstOrDefault(i => i.InterpreterId == InterpreterId);
+            return thisInterpreter;
+        }
+
+
     }
 }

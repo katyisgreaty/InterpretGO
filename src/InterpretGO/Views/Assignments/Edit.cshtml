@@ -5,73 +5,114 @@
 
 @model InterpretGO.Models.Assignment
 
-<h2>Edit</h2>
-<hr />
-<h4>Edit this assignment: @Html.DisplayFor(model => model.Title)</h4>
+<div class="parallax top-parallax-medium">
+    <h2 class="parallax-header">Edit</h2>
+</div>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.AssignmentId)
-    @Html.HiddenFor(model => model.Claimed)
+<div class="chunk chunk-xxsmall">
+    <h2 class="chunk-header">@Html.DisplayFor(model => model.Title)</h2>
+</div>
 
-    @Html.LabelFor(model => model.Title)
-    @Html.EditorFor(model => model.Title)
+<div class="parallax parallax-xxsmall"></div>
 
-    @Html.LabelFor(model => model.Type)
-    @Html.EditorFor(model => model.Type)
-
-    @Html.LabelFor(model => model.Date)
-    @Html.EditorFor(model => model.Date)
-
-    @Html.LabelFor(model => model.Time)
-    @Html.EditorFor(model => model.Time)
-
-    @Html.LabelFor(model => model.Duration)
-    @Html.EditorFor(model => model.Duration)
-
-    @Html.LabelFor(model => model.Location)
-    @Html.EditorFor(model => model.Location)
-
-    @Html.LabelFor(model => model.Language)
-    @Html.EditorFor(model => model.Language)
-
-    @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+<div class="chunk chunk-small">
+    @using (Html.BeginForm())
     {
         <div class="row">
-            <label>Interpreter Name</label>
-            <div class="form-group">
-                @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+            <div class="col-md-6">
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.HiddenFor(model => model.AssignmentId)
+                    </span>
+                    @Html.HiddenFor(model => model.Claimed)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Title)
+                    </span>
+                    @Html.EditorFor(model => model.Title)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Type)
+                    </span>
+                    @Html.EditorFor(model => model.Type)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Date)
+                    </span>
+                    @Html.EditorFor(model => model.Date)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Time)
+                    </span>
+                    @Html.EditorFor(model => model.Time)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Duration)
+                    </span>
+                    @Html.EditorFor(model => model.Duration)
+</div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Location)</span>
+                    @Html.EditorFor(model => model.Location)
+</div>
+                <div class="row">
+                    <span class="edit-label">
+                        @Html.LabelFor(model => model.Language)
+                    </span>
+                    @Html.EditorFor(model => model.Language)
+</div>
+                @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                {
+                    <div class="row">
+                        <span class="edit-label">
+                            <label>Interpreter Name</label>
+                        </span>
+                            <div class="form-group">
+                                @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+                            </div>
+</div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.InterpreterId)
+                }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="row">
+                        <span class="edit-label">
+                            <label>Client Name</label></span>
+                            <div class="form-group">
+                                @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
+                            </div>
+</div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.ClientId)
+
+                }
             </div>
         </div>
-    }
-    else
-    {
-        @Html.HiddenFor(model => model.InterpreterId)
-    }
 
-    @if (User.IsInRole("Admin"))
-    {
-        <div class="row">
-            <label>Client Name</label>
-            <div class="form-group">
-                @Html.DropDownList("ClientId", (IEnumerable<SelectListItem>)ViewBag.Clients, new { @class = "form-control" })
-            </div>
+            <input class="btn btn-custom save-button" type="submit" value="Save" />
+            }
+
+            @if (User.IsInRole("Admin"))
+                {
+                <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
+            }
+
+            <p>@Html.ActionLink("Back to list of your events", "List")</p>
+
         </div>
-    }
-    else
-    {
-        @Html.HiddenFor(model => model.ClientId)
 
-    }
-
-
-
-    <input class="btn" type="submit" value="Save" />
-}
-
-@if (User.IsInRole("Admin"))
-{
-    <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
-}
-
-<p>@Html.ActionLink("Back to list of your events", "List")</p>
+<div class="parallax bottom-parallax-medium"></div>

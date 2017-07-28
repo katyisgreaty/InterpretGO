@@ -11,7 +11,7 @@ body {
 }
 
 .btn-custom {
-    background-color: #232fde;
+    background-color: #399fef;
     color: white;
     font-family: 'Raleway', sans-serif;
 
@@ -100,6 +100,12 @@ body {
     min-height: 140px;
 }
 
+.chunk-xxsmall {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    min-height: 100px;
+}
+
 .chunk-header {
     margin-bottom: 35px;
     margin-top: 30px;
@@ -179,6 +185,18 @@ body {
     font-size: 20px;
 }
 
+/*Assignments Edit Page*/
+
+.save-button {
+    margin-bottom: 25px;
+    margin-top: 30px;
+}
+
+.edit-label {
+    min-width: 160px;
+    text-align: left;
+}
+
 /*Client Index Page*/
 
 .client-header {
@@ -244,6 +262,9 @@ body {
 
 .first-header {
     font-size: 50px;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .first-chunk-img {
