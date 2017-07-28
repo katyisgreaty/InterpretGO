@@ -5,40 +5,43 @@
 
 @model InterpretGO.Models.Assignment
 
-<h2>Claim</h2>
-<hr />
-<h4>Claim this assignment: @Html.DisplayFor(model => model.Title)</h4>
+<div class="parallax top-parallax-medium">
+    <h2 class="parallax-header">Claim</h2>
+</div>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.AssignmentId)
+<div class="chunk chunk-small">
+    <h4>Claim this assignment: @Html.DisplayFor(model => model.Title)</h4>
 
-    @Html.HiddenFor(model => model.ClientId)
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.AssignmentId)
 
-    @Html.HiddenFor(model => model.Title)
+        @Html.HiddenFor(model => model.ClientId)
 
-    @Html.HiddenFor(model => model.Type)
+        @Html.HiddenFor(model => model.Title)
 
-    @Html.HiddenFor(model => model.Date)
+        @Html.HiddenFor(model => model.Type)
 
-    @Html.HiddenFor(model => model.Duration)
+        @Html.HiddenFor(model => model.Date)
 
-    @Html.HiddenFor(model => model.Location)
+        @Html.HiddenFor(model => model.Duration)
 
-    @Html.HiddenFor(model => model.Language)
+        @Html.HiddenFor(model => model.Location)
 
-    @Html.HiddenFor(model => model.InterpreterId)
+        @Html.HiddenFor(model => model.Language)
 
+        @Html.HiddenFor(model => model.InterpreterId)
 
+        <label>Interpreter Claiming this Assignment</label>
+        <div class="form-group">
+            @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
+        </div>
+        <label>Claim this Assignment</label>
+        @Html.CheckBoxFor(model => model.Claimed)
 
-    <label>Interpreter Claiming this Assignment</label>
-    <div class="form-group">
-        @Html.DropDownList("InterpreterId", (IEnumerable<SelectListItem>)ViewBag.Terps, new { @class = "form-control" })
-    </div>
+        <input type="submit" value="Save" />
+    }
+    <p>@Html.ActionLink("Back to list of assignments", "Index")</p>
+</div>
 
-    <label>Claim this Assignment</label>
-    @Html.CheckBoxFor(model => model.Claimed)
-
-    <input type="submit" value="Save" />
-}
-<p>@Html.ActionLink("Back to list of assignments", "Index")</p>
+<div class="parallax bottom-parallax-large"></div>
