@@ -1,11 +1,19 @@
-﻿@model InterpretGO.Models.Client
+﻿@{
+    ViewData["Title"] = "Create Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+@model InterpretGO.Models.Client
 
+<div class="parallax-purple top-parallax-medium"></div>
+<div class="chunk chunk-small">
     <h2>Are you sure you want to delete this?</h2>
     <hr />
     @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
     @using (Html.BeginForm())
     {
-        <input type="submit" value="Delete" />
+        <input class="btn btn-custom" type="submit" value="Delete" />
     }
     @Html.ActionLink("Back to List", "Index")
+</div>
+<div class="parallax-purple bottom-parallax-large"></div>
