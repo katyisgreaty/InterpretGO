@@ -121,6 +121,10 @@ body {
     padding-left: 7%;
 }
 
+.chunk table {
+    text-align: left;
+}
+
 /*.render-body {
     /*margin-top: 100px;
 }*/
@@ -187,6 +191,12 @@ body {
 .new-assignment-link a {
     color: #b13cce !important;
     font-size: 20px;
+}
+
+/*Assignments Index Page*/
+
+.push-right {
+    margin-left: 52%;
 }
 
 /*Assignment Details Page*/
@@ -360,6 +370,7 @@ nav a {
 
 .title-icon {
     height: 30px;
+    margin-left: 6px;
 }
 
 .nav-user-name {

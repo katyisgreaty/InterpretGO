@@ -6,86 +6,89 @@
 @model IEnumerable<InterpretGO.Models.Assignment>
 
 
+<div class="parallax top-parallax-medium">
+    <h2 class="parallax-header">All Events</h2>
+</div>
 
-<h2>Assigments</h2>
 
-<p>@Html.ActionLink("List of My Assignments", "List")</p>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
-            <label>Deaf User Name</label>
-        </th>
-        <th>
-            <label>Interpreter Name</label>
-        </th>
-        <th>Claimed?</th>
-        <th></th>
-    </tr>
-    @foreach (var listAssignment in Model)
-    {
-
+<div class="chunk chunk-small">
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
-            </td>
-            <td>
-                @if (listAssignment.Claimed == false)
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                <label>Deaf User Name</label>
+            </th>
+            <th>
+                <label>Interpreter Name</label>
+            </th>
+            <th>Claimed?</th>
+            <th></th>
+        </tr>
+        @foreach (var listAssignment in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Client.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Interpreter.Name)
+                </td>
+                <td>
+                    @if (listAssignment.Claimed == false)
                 {
-                    <span>Not yet!</span>
-                    @if ((User.Identity.Name == listAssignment.Interpreter.Email) || listAssignment.Interpreter.Email == "nointerpreterpreference@gmail.com")
+                        <span>Not yet!</span>
+                        @if ((User.Identity.Name == listAssignment.Interpreter.Email) || listAssignment.Interpreter.Email == "nointerpreterpreference@gmail.com")
                     {
-                        <br />
-                        @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
+                            <br />
+                            @Html.ActionLink("Claim Job", "Claim", new { id = listAssignment.AssignmentId })
                         }
                     }
                     else
                     {
                         <span>Yes</span>
-                    }                
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
-                @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = listAssignment.AssignmentId }) |
+                    @if (User.IsInRole("Admin") || User.IsInRole("Deaf User"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
-                }
-                |
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        @Html.ActionLink("Edit", "Edit", new { id = listAssignment.AssignmentId })
+                    }
+                    |
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
-                }
+                        @Html.ActionLink("Delete", "Delete", new { id = listAssignment.AssignmentId })
+                    }
 
-            </td>
-        </tr>
+                </td>
+            </tr>
 
+        }
+    </table>
+
+    @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
+    {
+        <span>@Html.ActionLink("List of My Assignments", "List")</span>
+        <span class="new-assignment-link push-right">@Html.ActionLink("Add new Assignment", "Create")</span>
     }
-</table>
 
-@if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Deaf User")))
-{
-    <p>@Html.ActionLink("Add new Assignment", "Create")</p>
-}
-
-
+</div>
+<div class="parallax bottom-parallax-medium"></div>
