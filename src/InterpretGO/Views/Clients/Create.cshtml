@@ -5,35 +5,43 @@
 @using InterpretGO.Models
 @model InterpretGO.ViewModels.ClientsViewModel
 
-<h2>Add new Deaf Client</h2>
 
-@using (Html.BeginForm())
-{
-    <div class="row">
-        <span class="form-label">@Html.LabelFor(model => model.Client.Name)</span>
-        @Html.TextBoxFor(model => model.Client.Name, new { @required = "true" })
-    </div>
+<div class="parallax-purple top-parallax-medium">
+    <h2 class="parallax-header">Add new Deaf User</h2>
+</div>
 
-    <div class="row">
-        <span class="form-label"><label>Language Preference</label></span>
+<div class="chunk chunk-small">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <span class="form-label">@Html.LabelFor(model => model.Client.Name)</span>
+            @Html.TextBoxFor(model => model.Client.Name, new { @required = "true" })
+        </div>
+
+        <div class="row">
+            <span class="form-label"><label>Language Preference</label></span>
             @Html.DropDownListFor(model => model.Client.Language,
                     @Model.Languages,
                     "Select Language")
-    </div>
+        </div>
 
-    <div class="row">
-        <span class="form-label">@Html.LabelFor(model => model.Client.Email)</span>
-        @Html.TextBoxFor(model => model.Client.Email)
+        <div class="row">
+            <span class="form-label">@Html.LabelFor(model => model.Client.Email)</span>
+            @Html.TextBoxFor(model => model.Client.Email)
+        </div>
+
+        <div class="row">
+            <span class="form-label">@Html.LabelFor(model => model.Client.Phone)</span>
+            @Html.TextBoxFor(model => model.Client.Phone)
+        </div>
+
+        <div class="row">
+            <input class="btn btn-custom" type="submit" value="Add new deaf client" />
+        </div>
+    }
+
+    <p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
+
 </div>
 
-    <div class="row">
-        <span class="form-label">@Html.LabelFor(model => model.Client.Phone)</span>
-        @Html.TextBoxFor(model => model.Client.Phone)
-</div>
-
-    <div class="row">
-        <input class="btn add-client-button" type="submit" value="Add new deaf client" />
-    </div>
-}
-
-<p>@Html.ActionLink("Back to list of Deaf clients", "Index")</p>
+<div class="parallax-purple bottom-parallax-large"></div>
