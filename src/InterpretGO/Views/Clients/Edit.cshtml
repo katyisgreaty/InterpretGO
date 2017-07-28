@@ -6,11 +6,11 @@
 @model InterpretGO.Models.Client
 
 <div class="parallax-purple top-parallax-medium">
-    <h2 class="parallax-header">Edit</h2>
+    <h2 class="parallax-header">Edit Deaf/HH User</h2>
 </div>
 
 <div class="chunk chunk-small">
-    <h4>Edit this client: @Html.DisplayFor(model => model.Name)</h4>
+    <h4>Edit this Deaf/Hard of Hearing User: @Html.DisplayFor(model => model.Name)</h4>
 
     @using (Html.BeginForm())
     {
@@ -30,7 +30,7 @@
 
         <input type="submit" value="Save" />
     }
-    
-
 </div>
-<div class="parallax-purple bottom-parallax-large parallax-link"><p>@Html.ActionLink("Back to list of clients", "Index")</p></div>
+<div class="parallax-purple bottom-parallax-large parallax-link">
+    <p>@Html.ActionLink("Back to list of clients", "Index")</p>
+</div>

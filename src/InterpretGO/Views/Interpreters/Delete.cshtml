@@ -5,19 +5,19 @@
 
 @model InterpretGO.Models.Interpreter
 
-<html>
-<head>
-    <title>To Do List - Delete</title>
-</head>
-<body>
+<div class="parallax top-parallax-medium">
+</div>
 
+<div class="chunk chunk-small">
     <h2>Are you sure you want to delete this?</h2>
-    <hr />
+
     @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
     @using (Html.BeginForm())
     {
-        <input type="submit" value="Delete" />
+        <input class="btn btn-custom save-button" type="submit" value="Delete" />
     }
+</div>
+
+<div class="parallax-green bottom-parallax-large parallax-link">
     @Html.ActionLink("Back to List", "Index")
-</body>
-</html>
+</div>

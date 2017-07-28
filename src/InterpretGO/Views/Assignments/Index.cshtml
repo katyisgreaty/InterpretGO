@@ -18,6 +18,9 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
@@ -38,6 +41,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelAssignment => listAssignment.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelAssignment => listAssignment.Type)
                 </td>
                 <td>
                     @Html.DisplayFor(modelAssignment => listAssignment.Date)

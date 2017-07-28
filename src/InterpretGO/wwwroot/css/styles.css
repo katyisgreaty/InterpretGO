@@ -14,7 +14,9 @@ body {
     background-color: #399fef;
     color: white;
     font-family: 'Raleway', sans-serif;
-
+    -webkit-box-shadow: 2px 2px 3px #ccc;
+     -moz-box-shadow: 2px 2px 3px #ccc;
+          box-shadow: 2px 2px 2px #ccc;
 }
 
 .parallax {
@@ -31,6 +33,18 @@ body {
 
 .parallax-purple {
     background-image: url('../img/purple-background.jpg');
+    height: 470px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    color: white;
+    text-align: center;
+}
+
+.parallax-green {
+    background-image: url('../img/green-background.jpg');
     height: 470px;
     background-attachment: fixed;
     background-position: center;
@@ -333,6 +347,11 @@ body {
 
 .terp-detail-head {
     min-width: 110px;
+}
+
+.terp-detail-image {
+    width: 500px;
+
 }
 
 /*Layout*/

@@ -6,14 +6,8 @@
 @model InterpretGO.Models.Assignment
 
 <div class="parallax top-parallax-medium">
-    <h2 class="parallax-header">Edit</h2>
+    <h2 class="parallax-header">Edit Event</h2>
 </div>
-
-<div class="chunk chunk-xxsmall">
-    <h2 class="chunk-header">@Html.DisplayFor(model => model.Title)</h2>
-</div>
-
-<div class="parallax parallax-xxsmall"></div>
 
 <div class="chunk chunk-small">
     @using (Html.BeginForm())
@@ -110,7 +104,7 @@
 
         </div>
 
-<div class="parallax bottom-parallax-medium parallax-link">@if (User.IsInRole("Admin"))
+<div class="parallax bottom-parallax-large parallax-link">@if (User.IsInRole("Admin"))
 {
     <p>@Html.ActionLink("Back to list of all assignments", "Index")</p>
 }

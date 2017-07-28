@@ -1,67 +1,81 @@
 ﻿@{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Interpreter Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model InterpretGO.Models.Interpreter
 
 
+<div class="parallax-green top-parallax-medium">
+    <h2 class="parallax-header">Interpreter Details</h2>
+</div>
 
-    <h2>Interpreter Details</h2>
-    <hr />
-<table>
+<div class="chunk chunk-small">
+    <div class="row">
+        <div class="col-md-5 ">
+            <table class="table">
+                <tr>
+                    <th class="terp-detail-head">
+                        @Html.DisplayNameFor(model => model.Name):
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="terp-detail-head">
+                        @Html.DisplayNameFor(model => model.Phone):
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Phone)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="terp-detail-head">
+                        @Html.DisplayNameFor(model => model.Email):
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="terp-detail-head">
+                        @Html.DisplayNameFor(model => model.Specialty):
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Specialty)
+                    </td>
+                </tr>
+                @if (User.IsInRole("Admin") || User.Identity.Name == Model.Email)
+                {
+                    <tr>
+                        <th class="terp-detail-head">
+                            @Html.DisplayNameFor(model => model.Rate):
+                        </th>
+                        <td>
+                            <span>$</span>@Html.DisplayFor(model => model.Rate)<span>.00/hour</span>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <th class="terp-detail-head">
+                        Options:
+                    </th>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.InterpreterId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.InterpreterId })
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-7">
+            <img class="terp-detail-image" src="~/img/hands1.jpeg" />
+        </div>
+    </div>
     
-    <tr>
-        <th class="terp-detail-head">
-            @Html.DisplayNameFor(model => model.Name):
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Name)
-        </td>
-    </tr>
-    <tr>
-        <th class="terp-detail-head">
-            @Html.DisplayNameFor(model => model.Phone):
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Phone)
-        </td>
-    </tr>
-    <tr>
-        <th class="terp-detail-head">
-            @Html.DisplayNameFor(model => model.Email):
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Email)
-        </td>
-    </tr>
-    <tr>
-        <th class="terp-detail-head">
-            @Html.DisplayNameFor(model => model.Specialty):
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Specialty)
-        </td>
-    </tr>
-    <tr>
-        <th class="terp-detail-head">
-            @Html.DisplayNameFor(model => model.Rate):
-        </th>
-        <td>
-            <span>$</span>@Html.DisplayFor(model => model.Rate)<span>.00/hour</span>
-        </td>
-    </tr>
+</div>
 
-    <tr>
-        <th class="terp-detail-head">
-            Options:
-        </th>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.InterpreterId }) | 
-            @Html.ActionLink("Delete", "Delete", new { id = Model.InterpreterId })
-        </td>
-    </tr>
-</table>
-   
-
+<div class="parallax-green bottom-parallax-large parallax-link">
     <p>@Html.ActionLink("Back to list of interpreters", "Index")</p>
+</div>

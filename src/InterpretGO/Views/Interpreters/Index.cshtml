@@ -5,40 +5,49 @@
 
 @model IEnumerable<InterpretGO.Models.Interpreter>
 
+<div class="parallax-green top-parallax-medium">
+    <h2 class="parallax-header">Interpreters</h2>
+</div>
 
-
-<h2>Interpreters</h2>
 @if (!User.Identity.IsAuthenticated)
 {
-    <p>Sign in or Register to see more details!</p>
+    <div class="chunk chunk-small">
+        <p>Sign in or Register to see more details!</p>
+    </div>
+    <div class="parallax-green parallax-xxsmall"></div>
 }
-<table class="table">
-    <tr>
-        <th>Interpreter Name</th>
-        @if (User.Identity.IsAuthenticated)
+
+<div class="chunk chunk-small">
+    <table class="table">
+        <tr>
+            <th>Interpreter Name</th>
+            <th>Specialty</th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th>Email Address</th>
+                <th>Options</th>
+            }
+        </tr>
+
+        @foreach (var listInterpreter in Model)
         {
-            <th>Email Address</th>
-                    <th>Options</th>
-        }
-    </tr>
+            @if (listInterpreter.Name != "No Interpreter Preference")
+            {
 
-    @foreach (var listInterpreter in Model)
-    {
-        @if (listInterpreter.Name != "No Interpreter Preference")
-        {
-
-            <tr>
-                <td class="interpreter-index-name">
-                    @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
-                </td>
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <td>@Html.DisplayFor(modelInterpreter => listInterpreter.Email)</td>
-
-                    <td class="interpreter-index-list">
-                        @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId }) 
+                <tr>
+                    <td class="interpreter-index-name">
+                        @Html.DisplayFor(modelInterpreter => listInterpreter.Name)
                     </td>
+                    <td class="interpreter-index-name">
+                        @Html.DisplayFor(modelInterpreter => listInterpreter.Specialty)
+                    </td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>@Html.DisplayFor(modelInterpreter => listInterpreter.Email)</td>
+
+                        <td class="interpreter-index-list">
+                            @Html.ActionLink("Details", "Details", new { id = listInterpreter.InterpreterId })
+                        </td>
                         @if (User.IsInRole("Admin"))
                         {
                             <td>
@@ -46,18 +55,17 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Delete", "Delete", new { id = listInterpreter.InterpreterId })
-                                
                             </td>;
-
                         }
-                }
-            </tr>
+                    }
+                </tr>
+            }
         }
-    }
-</table>
-        
+    </table>
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>@Html.ActionLink("Add new interpreter", "Create")</p>
-}
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>@Html.ActionLink("Add new interpreter", "Create")</p>
+    }
+</div> 
+<div class="parallax-green bottom-parallax-large"></div>

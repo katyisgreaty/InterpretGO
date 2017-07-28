@@ -5,32 +5,38 @@
 
 @model InterpretGO.Models.Interpreter
 
-<h2>Edit</h2>
-<hr />
-<h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+<div class="parallax-green top-parallax-medium">
+    <h2 class="parallax-header">Edit Interpreter</h2>
+</div>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.InterpreterId)
+<div class="chunk chunk-small">
+    <h4>Edit this Interpreter: @Html.DisplayFor(model => model.Name)</h4>
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.InterpreterId)
 
-    @Html.LabelFor(model => model.Specialty)
-    @Html.EditorFor(model => model.Specialty)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
 
-    @Html.LabelFor(model => model.Certification)
-    @Html.EditorFor(model => model.Certification)
+        @Html.LabelFor(model => model.Specialty)
+        @Html.EditorFor(model => model.Specialty)
 
-    @Html.LabelFor(model => model.Rate)
-    @Html.EditorFor(model => model.Rate)
+        @Html.LabelFor(model => model.Certification)
+        @Html.EditorFor(model => model.Certification)
 
-    @Html.LabelFor(model => model.Email)
-    @Html.EditorFor(model => model.Email)
+        @Html.LabelFor(model => model.Rate)
+        @Html.EditorFor(model => model.Rate)
 
-    @Html.LabelFor(model => model.Phone)
-    @Html.EditorFor(model => model.Phone)
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email)
 
-    <input type="submit" value="Save" />
-}
-<p>@Html.ActionLink("Back to list", "Index")</p>
+        @Html.LabelFor(model => model.Phone)
+        @Html.EditorFor(model => model.Phone)
+
+        <input type="submit" value="Save" />
+    }
+</div>
+<div class="parallax-green bottom-parallax-large parallax-link">
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
